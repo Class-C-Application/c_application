@@ -2,20 +2,11 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "C_Run_Visual_Studio_Style",
+            "label": "C_Run",
             "type": "shell",
             "command": "gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension} && ${fileDirname}/${fileBasenameNoExtension}",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared",
-                "clear": true,
-                "focus": true
-            },
-            "problemMatcher": "$gcc"
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "panel": "shared", "clear": true }
         }
     ]
 }
