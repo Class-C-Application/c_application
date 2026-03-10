@@ -1,4 +1,22 @@
-- name: Autograding
+name: GitHub Classroom Workflow
+
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1번 테스트: Hello World
+      - name: week01-01-hello
+        id: week01-01-hello
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week01-01-hello
@@ -9,7 +27,10 @@
           comparison-method: contains
           timeout: 10
           max-score: 10
-      - name: Autograding
+
+      # 2번 테스트: Put (여러 줄 출력)
+      - name: week01-02-put
+        id: week01-02-put
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week01-02-put
@@ -22,7 +43,10 @@
           comparison-method: contains
           timeout: 10
           max-score: 10
-      - name: Autograding
+
+      # 3번 테스트: Debug (오타 수정)
+      - name: week01-03-debug
+        id: week01-03-debug
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week01-03-debug
@@ -35,3 +59,13 @@
           comparison-method: contains
           timeout: 10
           max-score: 10
+
+      # 최종 점수 합산 및 리포트 출력
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          WEEK01-01-HELLO_RESULTS: "${{steps.week01-01-hello.outputs.result}}"
+          WEEK01-02-PUT_RESULTS: "${{steps.week01-02-put.outputs.result}}"
+          WEEK01-03-DEBUG_RESULTS: "${{steps.week01-03-debug.outputs.result}}"
+        with:
+          runners: week01-01-hello,week01-02-put,week01-03-debug
