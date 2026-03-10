@@ -1,11 +1,10 @@
 {
-    "name": "C Programming Environment",
+    "name": "C 프로그래밍 실습 환경",
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-vscode.cpptools",
-                "ms-vscode.cpptools-extension-pack",
                 "franneck94.c-cpp-runner"
             ]
         }
