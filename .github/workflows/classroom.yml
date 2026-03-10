@@ -1,0 +1,37 @@
+- name: Autograding
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week01-01-hello
+          setup-command: gcc week01/01hello.c -o t1
+          command: ./t1
+          input: ""
+          expected-output: "hello, world"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+      - name: Autograding
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week01-02-put
+          setup-command: gcc week01/02put.c -o t2
+          command: ./t2
+          input: ""
+          expected-output: |-
+            hello, world
+            C 언어, 재미있다!
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+      - name: Autograding
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week01-03-debug
+          setup-command: gcc week01/03debug.c -o t3
+          command: ./t3
+          input: ""
+          expected-output: |-
+            컴퓨터공학과 학생이며
+            C 프로그래밍 언어를 수강합니다.
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
