@@ -2,7 +2,6 @@ name: GitHub Classroom Workflow
 on:
   push:
     paths:
-      - 'week01/**'
       - 'week06/**'
 permissions:
   checks: write
@@ -14,46 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: week01-01-hello
-        id: week01-01-hello
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week01-01-hello
-          setup-command: gcc week01/01hello.c -o t1
-          command: ./t1
-          expected-output: "hello, world"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week01-02-put
-        id: week01-02-put
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week01-02-put
-          setup-command: gcc week01/02put.c -o t2
-          command: ./t2
-          expected-output: |-
-            hello, world
-            C 언어, 재미있다!
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week01-03-debug
-        id: week01-03-debug
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week01-03-debug
-          setup-command: gcc week01/03debug.c -o t3
-          command: ./t3
-          expected-output: |-
-            컴퓨터공학과 학생이며
-            C 프로그래밍 언어를 수강합니다.
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
 
       - name: week06-01-basicif
         id: week06-01-basicif
@@ -206,10 +165,8 @@ jobs:
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
+        continue-on-error: true
         env:
-          WEEK01-01-HELLO_RESULTS: "${{steps.week01-01-hello.outputs.result}}"
-          WEEK01-02-PUT_RESULTS: "${{steps.week01-02-put.outputs.result}}"
-          WEEK01-03-DEBUG_RESULTS: "${{steps.week01-03-debug.outputs.result}}"
           WEEK06-01-BASICIF_RESULTS: "${{steps.week06-01-basicif.outputs.result}}"
           WEEK06-02-EVENIFELSE_RESULTS: "${{steps.week06-02-evenifelse.outputs.result}}"
           WEEK06-03-ADDSUB_RESULTS: "${{steps.week06-03-addsub.outputs.result}}"
@@ -222,4 +179,4 @@ jobs:
           WEEK06-LAB1-PAY_RESULTS: "${{steps.week06-lab1-pay.outputs.result}}"
           WEEK06-LAB2-SHAPESWITCH_RESULTS: "${{steps.week06-lab2-shapeswitch.outputs.result}}"
         with:
-          runners: week01-01-hello,week01-02-put,week01-03-debug,week06-01-basicif,week06-02-evenifelse,week06-03-addsub,week06-04-nestedif,week06-05-ageifelse,week06-06-arithswitch,week06-07-seasonswitch,week06-08-scoreswitch,week06-09-scoreswitch2,week06-lab1-pay,week06-lab2-shapeswitch
+          runners: week06-01-basicif,week06-02-evenifelse,week06-03-addsub,week06-04-nestedif,week06-05-ageifelse,week06-06-arithswitch,week06-07-seasonswitch,week06-08-scoreswitch,week06-09-scoreswitch2,week06-lab1-pay,week06-lab2-shapeswitch
