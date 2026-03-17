@@ -1,5 +1,8 @@
 name: GitHub Classroom Workflow - Week06
-on: [push]
+on:
+  push:
+    paths:
+      - 'week06/**'
 permissions:
   checks: write
   actions: read

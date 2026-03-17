@@ -1,5 +1,8 @@
 name: GitHub Classroom Workflow
-on: [push]
+on:
+  push:
+    paths:
+      - 'week01/**'
 permissions:
   checks: write
   actions: read
