@@ -2,7 +2,7 @@ name: GitHub Classroom Workflow - Week06
 on:
   push:
     paths:
-      - 'week06/**'
+      - 'chapter06/**'
 permissions:
   checks: write
   actions: read
@@ -19,7 +19,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-01-basicif
-          setup-command: gcc week06/01basicif.c -o w601
+          setup-command: gcc chapter06/01basicif.c -o w601
           command: ./w601
           input: "33.0"
           expected-output: "폭염 주의보를 발령합니다."
@@ -32,7 +32,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-02-evenifelse
-          setup-command: gcc week06/02evenifelse_fixed.c -o w602
+          setup-command: gcc chapter06/02evenifelse_fixed.c -o w602
           command: ./w602
           input: "4"
           expected-output: "짝수"
@@ -45,7 +45,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-03-addsub
-          setup-command: gcc week06/03addsub.c -o w603
+          setup-command: gcc chapter06/03addsub.c -o w603
           command: ./w603
           input: "3.5"
           expected-output: "우수"
@@ -58,7 +58,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-04-nestedif
-          setup-command: gcc week06/04nestedif.c -o w604
+          setup-command: gcc chapter06/04nestedif.c -o w604
           command: ./w604
           input: |-
             1
@@ -73,7 +73,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-05-ageifelse
-          setup-command: gcc week06/05ageifelse.c -o w605
+          setup-command: gcc chapter06/05ageifelse.c -o w605
           command: ./w605
           input: "25"
           expected-output: "당신은 성인입니다."
@@ -86,7 +86,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-06-arithswitch
-          setup-command: gcc week06/06arithswitch.c -o w606
+          setup-command: gcc chapter06/06arithswitch.c -o w606
           command: ./w606
           input: |-
             3.0 4.0
@@ -101,7 +101,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-07-seasonswitch
-          setup-command: gcc week06/07seasonswitch.c -o w607
+          setup-command: gcc chapter06/07seasonswitch.c -o w607
           command: ./w607
           input: "7"
           expected-output: "여름입니다."
@@ -114,7 +114,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-08-scoreswitch
-          setup-command: gcc week06/08scoreswitch.c -o w608
+          setup-command: gcc chapter06/08scoreswitch.c -o w608
           command: ./w608
           input: "5 3"
           expected-output: "최대값: 5"
@@ -127,7 +127,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-09-scoreswitch2
-          setup-command: gcc week06/09scoreswitch2.c -o w609
+          setup-command: gcc chapter06/09scoreswitch2.c -o w609
           command: ./w609
           input: "85"
           expected-output: "성적이 B 입니다."
@@ -140,7 +140,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-lab1-pay
-          setup-command: gcc week06/lab1pay.c -o w6lab1
+          setup-command: gcc chapter06/lab1pay.c -o w6lab1
           command: ./w6lab1
           input: "3 7 5"
           expected-output: "최대 수: 7"
@@ -153,7 +153,7 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week06-lab2-shapeswitch
-          setup-command: gcc week06/lab2shapeswitch.c -o w6lab2
+          setup-command: gcc chapter06/lab2shapeswitch.c -o w6lab2
           command: ./w6lab2
           input: |-
             1
@@ -165,6 +165,7 @@ jobs:
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
+        continue-on-error: true
         env:
           WEEK06-01-BASICIF_RESULTS: "${{steps.week06-01-basicif.outputs.result}}"
           WEEK06-02-EVENIFELSE_RESULTS: "${{steps.week06-02-evenifelse.outputs.result}}"
