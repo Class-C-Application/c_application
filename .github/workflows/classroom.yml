@@ -1,8 +1,7 @@
-name: GitHub Classroom Workflow
+name: GitHub Classroom Workflow - Week07
 on:
   push:
     paths:
-      - 'chapter06/**'
       - 'chapter07/**'
 permissions:
   checks: write
@@ -10,247 +9,213 @@ permissions:
   contents: read
 jobs:
   build:
-    name: Autograding
+    name: Autograding Week07
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week06-01-basicif
-        id: week06-01-basicif
+      - name: week07-03-whilebasic
+        id: week07-03-whilebasic
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week06-01-basicif
-          setup-command: gcc chapter06/01basicif.c -o w601
-          command: ./w601
-          input: "33.0"
-          expected-output: "폭염 주의보를 발령합니다."
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-02-evenifelse
-        id: week06-02-evenifelse
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-02-evenifelse
-          setup-command: gcc chapter06/02evenifelse_fixed.c -o w602
-          command: ./w602
-          input: "4"
-          expected-output: "짝수"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-03-addsub
-        id: week06-03-addsub
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-03-addsub
-          setup-command: gcc chapter06/03addsub.c -o w603
-          command: ./w603
-          input: "3.5"
-          expected-output: "우수"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-04-nestedif
-        id: week06-04-nestedif
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-04-nestedif
-          setup-command: gcc chapter06/04nestedif.c -o w604
-          command: ./w604
-          input: |-
-            1
-            75
-          expected-output: "1종면허 합격"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-05-ageifelse
-        id: week06-05-ageifelse
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-05-ageifelse
-          setup-command: gcc chapter06/05ageifelse.c -o w605
-          command: ./w605
-          input: "25"
-          expected-output: "당신은 성인입니다."
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-06-arithswitch
-        id: week06-06-arithswitch
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-06-arithswitch
-          setup-command: gcc chapter06/06arithswitch.c -o w606
-          command: ./w606
-          input: |-
-            3.0 4.0
-            1
-          expected-output: "3.00 + 4.00 = 7.00"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-07-seasonswitch
-        id: week06-07-seasonswitch
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-07-seasonswitch
-          setup-command: gcc chapter06/07seasonswitch.c -o w607
-          command: ./w607
-          input: "7"
-          expected-output: "여름입니다."
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-08-scoreswitch
-        id: week06-08-scoreswitch
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-08-scoreswitch
-          setup-command: gcc chapter06/08scoreswitch.c -o w608
-          command: ./w608
-          input: "5 3"
-          expected-output: "최대값: 5"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-09-scoreswitch2
-        id: week06-09-scoreswitch2
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-09-scoreswitch2
-          setup-command: gcc chapter06/09scoreswitch2.c -o w609
-          command: ./w609
-          input: "85"
-          expected-output: "성적이 B 입니다."
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-lab1-pay
-        id: week06-lab1-pay
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-lab1-pay
-          setup-command: gcc chapter06/lab1pay.c -o w6lab1
-          command: ./w6lab1
-          input: "3 7 5"
-          expected-output: "최대 수: 7"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week06-lab2-shapeswitch
-        id: week06-lab2-shapeswitch
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week06-lab2-shapeswitch
-          setup-command: gcc chapter06/lab2shapeswitch.c -o w6lab2
-          command: ./w6lab2
-          input: |-
-            1
-            3.0 4.0
-          expected-output: "삼각형 면적: 6.00"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-01-whilebasic
-        id: week07-01-whilebasic
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-01-whilebasic
-          setup-command: gcc chapter07/03whilebasic.c -o w701
-          command: ./w701
-          input: ""
-          expected-output: "반복, 재미있네요!"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-02-dowhile
-        id: week07-02-dowhile
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-02-dowhile
-          setup-command: gcc chapter07/05dowhile.c -o w702
-          command: ./w702
-          input: "0"
-          expected-output: "[0]종료"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-03-forbasic
-        id: week07-03-forbasic
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-03-forbasic
-          setup-command: gcc chapter07/06forbasic.c -o w703
+          test-name: week07-03-whilebasic
+          setup-command: gcc chapter07/03whilebasic.c -o w703
           command: ./w703
+          input: ""
+          expected-output: "제어 변수 count => 4"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-04-whilenum
+        id: week07-04-whilenum
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-04-whilenum
+          setup-command: gcc chapter07/04whilenum.c -o w704
+          command: ./w704
+          input: |-
+            1.5
+            2.3
+            0
+          expected-output: "합 = 3.80"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-05-dowhile
+        id: week07-05-dowhile
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-05-dowhile
+          setup-command: gcc chapter07/05dowhile.c -o w705
+          command: ./w705
+          input: |-
+            1
+            0
+          expected-output: "[0]종료 [1]아메리카노 [2]카페라떼 [3]카푸치노"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-06-forbasic
+        id: week07-06-forbasic
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-06-forbasic
+          setup-command: gcc chapter07/06forbasic.c -o w706
+          command: ./w706
           input: ""
           expected-output: "for 종료 이후 i => 6"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week07-04-break
-        id: week07-04-break
+      - name: week07-07-forcel2far3
+        id: week07-07-forcel2far3
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week07-04-break
-          setup-command: gcc chapter07/11break.c -o w704
-          command: ./w704
-          input: "0"
-          expected-output: "종료"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-05-continue
-        id: week07-05-continue
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-05-continue
-          setup-command: gcc chapter07/12continue.c -o w705
-          command: ./w705
-          input: ""
-          expected-output: "3으로 나누어 떨어지지 않는 수"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-06-goto
-        id: week07-06-goto
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-06-goto
-          setup-command: gcc chapter07/13goto.c -o w706
-          command: ./w706
-          input: ""
-          expected-output: "종료"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week07-07-triangle
-        id: week07-07-triangle
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week07-07-triangle
-          setup-command: gcc chapter07/16triangle.c -o w707
+          test-name: week07-07-forcel2far3
+          setup-command: gcc chapter07/07forcel2far3.c -o w707
           command: ./w707
           input: ""
+          expected-output: "32.46    90.43"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-08-forintbit
+        id: week07-08-forintbit
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-08-forintbit
+          setup-command: gcc chapter07/08forintbit.c -o w708
+          command: ./w708
+          input: ""
+          expected-output: "00000000000000000000000000001101"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-09-forsum
+        id: week07-09-forsum
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-09-forsum
+          setup-command: gcc chapter07/09forsum.c -o w709
+          command: ./w709
+          input: ""
+          expected-output: "1 ~ 10 합: 55"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-10-inputsum
+        id: week07-10-inputsum
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-10-inputsum
+          setup-command: gcc chapter07/10inputsum.c -o w710
+          command: ./w710
+          input: "10"
+          expected-output: "while 문으로 구한 1에서 10까지 합:  55"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-11-break
+        id: week07-11-break
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-11-break
+          setup-command: gcc chapter07/11break.c -o w711
+          command: ./w711
+          input: |-
+            15
+            0
+          expected-output: "입력한 정수 15: 16진수 0xf"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-12-continue
+        id: week07-12-continue
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-12-continue
+          setup-command: gcc chapter07/12continue.c -o w712
+          command: ./w712
+          input: ""
+          expected-output: "  1  2  4  5  7  8 10 11 13 14"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-13-goto
+        id: week07-13-goto
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-13-goto
+          setup-command: gcc chapter07/13goto.c -o w713
+          command: ./w713
+          input: ""
+          expected-output: "종료"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-14-octhex
+        id: week07-14-octhex
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-14-octhex
+          setup-command: gcc chapter07/14octhex.c -o w714
+          command: ./w714
+          input: |-
+            13
+            0
+          expected-output: "정수 13: 8진수 015  16진수 0xd"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-15-nestedloop
+        id: week07-15-nestedloop
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-15-nestedloop
+          setup-command: gcc chapter07/15nestedloop.c -o w715
+          command: ./w715
+          input: ""
+          expected-output: "m = 5"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-16-triangle
+        id: week07-16-triangle
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-16-triangle
+          setup-command: gcc chapter07/16triangle.c -o w716
+          command: ./w716
+          input: ""
           expected-output: "*****"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week07-17-loopsum
+        id: week07-17-loopsum
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week07-17-loopsum
+          setup-command: gcc chapter07/17loopsum.c -o w717
+          command: ./w717
+          input: |-
+            3
+            0
+          expected-output: "1 + 2 + 3 = 6"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -263,10 +228,12 @@ jobs:
           setup-command: gcc chapter07/lab1max.c -o w7lab1
           command: ./w7lab1
           input: |-
-            120
+            140
             125
-            110
+            150
+            120
             130
+            115
           expected-output: "정원 4명 완료!"
           comparison-method: contains
           timeout: 10
@@ -279,8 +246,8 @@ jobs:
           test-name: week07-lab2-digit
           setup-command: gcc chapter07/lab2digit.c -o w7lab2
           command: ./w7lab2
-          input: "123"
-          expected-output: "100단위 출력: 1"
+          input: "456"
+          expected-output: "100단위 출력: 4"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -292,8 +259,8 @@ jobs:
           test-name: week07-lab3-primebreak
           setup-command: gcc chapter07/lab3primebreak.c -o w7lab3
           command: ./w7lab3
-          input: "7"
-          expected-output: "7 소수이다."
+          input: "17"
+          expected-output: "17 소수이다."
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -306,7 +273,7 @@ jobs:
           setup-command: gcc chapter07/lab4mtable.c -o w7lab4
           command: ./w7lab4
           input: ""
-          expected-output: "2단 출력"
+          expected-output: "    9단 출력"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -315,27 +282,24 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK06-01-BASICIF_RESULTS: "${{steps.week06-01-basicif.outputs.result}}"
-          WEEK06-02-EVENIFELSE_RESULTS: "${{steps.week06-02-evenifelse.outputs.result}}"
-          WEEK06-03-ADDSUB_RESULTS: "${{steps.week06-03-addsub.outputs.result}}"
-          WEEK06-04-NESTEDIF_RESULTS: "${{steps.week06-04-nestedif.outputs.result}}"
-          WEEK06-05-AGEIFELSE_RESULTS: "${{steps.week06-05-ageifelse.outputs.result}}"
-          WEEK06-06-ARITHSWITCH_RESULTS: "${{steps.week06-06-arithswitch.outputs.result}}"
-          WEEK06-07-SEASONSWITCH_RESULTS: "${{steps.week06-07-seasonswitch.outputs.result}}"
-          WEEK06-08-SCORESWITCH_RESULTS: "${{steps.week06-08-scoreswitch.outputs.result}}"
-          WEEK06-09-SCORESWITCH2_RESULTS: "${{steps.week06-09-scoreswitch2.outputs.result}}"
-          WEEK06-LAB1-PAY_RESULTS: "${{steps.week06-lab1-pay.outputs.result}}"
-          WEEK06-LAB2-SHAPESWITCH_RESULTS: "${{steps.week06-lab2-shapeswitch.outputs.result}}"
-          WEEK07-01-WHILEBASIC_RESULTS: "${{steps.week07-01-whilebasic.outputs.result}}"
-          WEEK07-02-DOWHILE_RESULTS: "${{steps.week07-02-dowhile.outputs.result}}"
-          WEEK07-03-FORBASIC_RESULTS: "${{steps.week07-03-forbasic.outputs.result}}"
-          WEEK07-04-BREAK_RESULTS: "${{steps.week07-04-break.outputs.result}}"
-          WEEK07-05-CONTINUE_RESULTS: "${{steps.week07-05-continue.outputs.result}}"
-          WEEK07-06-GOTO_RESULTS: "${{steps.week07-06-goto.outputs.result}}"
-          WEEK07-07-TRIANGLE_RESULTS: "${{steps.week07-07-triangle.outputs.result}}"
+          WEEK07-03-WHILEBASIC_RESULTS: "${{steps.week07-03-whilebasic.outputs.result}}"
+          WEEK07-04-WHILENUM_RESULTS: "${{steps.week07-04-whilenum.outputs.result}}"
+          WEEK07-05-DOWHILE_RESULTS: "${{steps.week07-05-dowhile.outputs.result}}"
+          WEEK07-06-FORBASIC_RESULTS: "${{steps.week07-06-forbasic.outputs.result}}"
+          WEEK07-07-FORCEL2FAR3_RESULTS: "${{steps.week07-07-forcel2far3.outputs.result}}"
+          WEEK07-08-FORINTBIT_RESULTS: "${{steps.week07-08-forintbit.outputs.result}}"
+          WEEK07-09-FORSUM_RESULTS: "${{steps.week07-09-forsum.outputs.result}}"
+          WEEK07-10-INPUTSUM_RESULTS: "${{steps.week07-10-inputsum.outputs.result}}"
+          WEEK07-11-BREAK_RESULTS: "${{steps.week07-11-break.outputs.result}}"
+          WEEK07-12-CONTINUE_RESULTS: "${{steps.week07-12-continue.outputs.result}}"
+          WEEK07-13-GOTO_RESULTS: "${{steps.week07-13-goto.outputs.result}}"
+          WEEK07-14-OCTHEX_RESULTS: "${{steps.week07-14-octhex.outputs.result}}"
+          WEEK07-15-NESTEDLOOP_RESULTS: "${{steps.week07-15-nestedloop.outputs.result}}"
+          WEEK07-16-TRIANGLE_RESULTS: "${{steps.week07-16-triangle.outputs.result}}"
+          WEEK07-17-LOOPSUM_RESULTS: "${{steps.week07-17-loopsum.outputs.result}}"
           WEEK07-LAB1-MAX_RESULTS: "${{steps.week07-lab1-max.outputs.result}}"
           WEEK07-LAB2-DIGIT_RESULTS: "${{steps.week07-lab2-digit.outputs.result}}"
           WEEK07-LAB3-PRIMEBREAK_RESULTS: "${{steps.week07-lab3-primebreak.outputs.result}}"
           WEEK07-LAB4-MTABLE_RESULTS: "${{steps.week07-lab4-mtable.outputs.result}}"
         with:
-          runners: week06-01-basicif,week06-02-evenifelse,week06-03-addsub,week06-04-nestedif,week06-05-ageifelse,week06-06-arithswitch,week06-07-seasonswitch,week06-08-scoreswitch,week06-09-scoreswitch2,week06-lab1-pay,week06-lab2-shapeswitch,week07-01-whilebasic,week07-02-dowhile,week07-03-forbasic,week07-04-break,week07-05-continue,week07-06-goto,week07-07-triangle,week07-lab1-max,week07-lab2-digit,week07-lab3-primebreak,week07-lab4-mtable
+          runners: week07-03-whilebasic,week07-04-whilenum,week07-05-dowhile,week07-06-forbasic,week07-07-forcel2far3,week07-08-forintbit,week07-09-forsum,week07-10-inputsum,week07-11-break,week07-12-continue,week07-13-goto,week07-14-octhex,week07-15-nestedloop,week07-16-triangle,week07-17-loopsum,week07-lab1-max,week07-lab2-digit,week07-lab3-primebreak,week07-lab4-mtable
