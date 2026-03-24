@@ -1,18 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-    double number = 1, sum = 0;
-
-    while (number != 0.0)
-    {
-        printf("실수 입력 >> ");
-        scanf("%lf", &number);
-        sum += number;
-    }
-
-    printf("합 = %.2f\n", sum);
-
+    // printf("실수 입력 >> ");
+    // printf("합 = %.2f\n", 변수1);
     return 0;
 }
