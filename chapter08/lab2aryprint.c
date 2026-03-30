@@ -2,12 +2,8 @@
 
 int main()
 {
-	int a[3][4] =
-	{
-		{ 1, 2, 7, 3 },   /*  initializers for row indexed by 0 */
-		{ 5, 6, 3, 4 },   /*  initializers for row indexed by 1 */
-		{ 9, 7, 1, 8 }    /*  initializers for row indexed by 2 */
-	};
+	// 3행 4열의 int형 2차원 배열 a를 선언하고 아래 값으로 초기화하세요:
+	// { {1, 2, 7, 3}, {5, 6, 3, 4}, {9, 7, 1, 8} }
 
 	printf("%6s %3s  ", "원소", "값");
 	printf("%6s %3s  ", "원소", "값");
@@ -16,12 +12,8 @@ int main()
 	printf("------------------------");
 	printf("------------------------\n");
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 4; j++)
-			printf(" a[%d][%d] %d  ", i, j, a[i][j]);
-		puts("");
-	}
+	// 3행 4열을 순회하는 중첩 for문을 작성하고, 각 원소를 printf(" a[%d][%d] %d  ", i, j, a[i][j]); 형식으로 출력하세요
+	// 각 행 출력 후 puts(""); 으로 줄바꿈하세요
 
 	return 0;
 }
