@@ -1,132 +1,145 @@
-name: GitHub Classroom Workflow - Week08
+name: GitHub Classroom Workflow - Week09
 on:
   push:
     paths:
-      - 'chapter08/**'
+      - 'chapter09/**'
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
   build:
-    name: Autograding Week08
+    name: Autograding Week09
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week08-01-decarray
-        id: week08-01-decarray
+      - name: week09-01-basefunc
+        id: week09-01-basefunc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-01-decarray
-          setup-command: gcc chapter08/01decarray.c -o w801
-          command: ./w801
+          test-name: week09-01-basefunc
+          setup-command: gcc chapter09/01basefunc.c chapter09/01catalk.c -o w901
+          command: ./w901
           input: ""
-          expected-output: "91"
+          expected-output: "메인 함수 종료입니다."
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-02-initarray
-        id: week08-02-initarray
+      - name: week09-02-funcadd
+        id: week09-02-funcadd
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-02-initarray
-          setup-command: gcc chapter08/02initarray.c -o w802
-          command: ./w802
+          test-name: week09-02-funcadd
+          setup-command: gcc chapter09/02funcadd.c -o w902
+          command: ./w902
           input: ""
-          expected-output: "성적의 합은"
+          expected-output: "합: 8"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-03-tdarray
-        id: week08-03-tdarray
+      - name: week09-03-functioncall
+        id: week09-03-functioncall
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-03-tdarray
-          setup-command: gcc chapter08/03tdarray.c -o w803
-          command: ./w803
+          test-name: week09-03-functioncall
+          setup-command: gcc chapter09/03functioncall.c chapter09/03others.c -o w903
+          command: ./w903
           input: ""
-          expected-output: "td[1][2] == 6"
+          expected-output: "최소: 10"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-04-inittdary
-        id: week08-04-inittdary
+      - name: week09-04-aryparam
+        id: week09-04-aryparam
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-04-inittdary
-          setup-command: gcc chapter08/04inittdary.c -o w804
-          command: ./w804
+          test-name: week09-04-aryparam
+          setup-command: gcc chapter09/04aryparam.c -o w904
+          command: ./w904
           input: ""
-          expected-output: "1 2 3"
+          expected-output: "메인에서 구한 합은 755"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-05-tdscore
-        id: week08-05-tdscore
+      - name: week09-05-twodaryfunc
+        id: week09-05-twodaryfunc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-05-tdscore
-          setup-command: gcc chapter08/05tdscore.c -o w805
-          command: ./w805
+          test-name: week09-05-twodaryfunc
+          setup-command: gcc chapter09/05twodaryfunc.c -o w905
+          command: ./w905
           input: ""
-          expected-output: "평균은 87.50이다."
+          expected-output: "원소합은 129.000"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-06-thdary
-        id: week08-06-thdary
+      - name: week09-06-factorial
+        id: week09-06-factorial
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-06-thdary
-          setup-command: gcc chapter08/06thdary.c -o w806
-          command: ./w806
+          test-name: week09-06-factorial
+          setup-command: gcc chapter09/06factorial.c -o w906
+          command: ./w906
           input: ""
-          expected-output: "[강좌 2]"
+          expected-output: "10! = 3628800"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-07-arysize
-        id: week08-07-arysize
+      - name: week09-09-math
+        id: week09-09-math
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-07-arysize
-          setup-command: gcc chapter08/07arysize.c -o w807
-          command: ./w807
+          test-name: week09-09-math
+          setup-command: gcc chapter09/09math.c -o w909 -lm
+          command: ./w909
           input: ""
-          expected-output: "배열 data 크기 == 5"
+          expected-output: "제곱근(sqrt)"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-lab1-inputarray
-        id: week08-lab1-inputarray
+      - name: week09-10-char
+        id: week09-10-char
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-lab1-inputarray
-          setup-command: gcc chapter08/lab1inputarray.c -o w8lab1
-          command: ./w8lab1
-          input: "0"
-          expected-output: "0을 입력하면 입력을 종료합니다."
+          test-name: week09-10-char
+          setup-command: gcc chapter09/10char.c -o w910
+          command: ./w910
+          input: "x"
+          expected-output: "변환: X"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week08-lab2-aryprint
-        id: week08-lab2-aryprint
+      - name: week09-lab1-intpower
+        id: week09-lab1-intpower
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week08-lab2-aryprint
-          setup-command: gcc chapter08/lab2aryprint.c -o w8lab2
-          command: ./w8lab2
+          test-name: week09-lab1-intpower
+          setup-command: gcc chapter09/lab1intpower.c -o w9lab1
+          command: ./w9lab1
+          input: "2 10"
+          expected-output: "제곱은 1024"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week09-lab2-increment
+        id: week09-lab2-increment
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week09-lab2-increment
+          setup-command: gcc chapter09/lab2increment.c -o w9lab2
+          command: ./w9lab2
           input: ""
-          expected-output: "a[2][3] 8"
+          expected-output: "배열 원소에 각각 3"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -135,14 +148,15 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK08-01-DECARRAY_RESULTS: "${{steps.week08-01-decarray.outputs.result}}"
-          WEEK08-02-INITARRAY_RESULTS: "${{steps.week08-02-initarray.outputs.result}}"
-          WEEK08-03-TDARRAY_RESULTS: "${{steps.week08-03-tdarray.outputs.result}}"
-          WEEK08-04-INITTDARY_RESULTS: "${{steps.week08-04-inittdary.outputs.result}}"
-          WEEK08-05-TDSCORE_RESULTS: "${{steps.week08-05-tdscore.outputs.result}}"
-          WEEK08-06-THDARY_RESULTS: "${{steps.week08-06-thdary.outputs.result}}"
-          WEEK08-07-ARYSIZE_RESULTS: "${{steps.week08-07-arysize.outputs.result}}"
-          WEEK08-LAB1-INPUTARRAY_RESULTS: "${{steps.week08-lab1-inputarray.outputs.result}}"
-          WEEK08-LAB2-ARYPRINT_RESULTS: "${{steps.week08-lab2-aryprint.outputs.result}}"
+          WEEK09-01-BASEFUNC_RESULTS: "${{steps.week09-01-basefunc.outputs.result}}"
+          WEEK09-02-FUNCADD_RESULTS: "${{steps.week09-02-funcadd.outputs.result}}"
+          WEEK09-03-FUNCTIONCALL_RESULTS: "${{steps.week09-03-functioncall.outputs.result}}"
+          WEEK09-04-ARYPARAM_RESULTS: "${{steps.week09-04-aryparam.outputs.result}}"
+          WEEK09-05-TWODARYFUNC_RESULTS: "${{steps.week09-05-twodaryfunc.outputs.result}}"
+          WEEK09-06-FACTORIAL_RESULTS: "${{steps.week09-06-factorial.outputs.result}}"
+          WEEK09-09-MATH_RESULTS: "${{steps.week09-09-math.outputs.result}}"
+          WEEK09-10-CHAR_RESULTS: "${{steps.week09-10-char.outputs.result}}"
+          WEEK09-LAB1-INTPOWER_RESULTS: "${{steps.week09-lab1-intpower.outputs.result}}"
+          WEEK09-LAB2-INCREMENT_RESULTS: "${{steps.week09-lab2-increment.outputs.result}}"
         with:
-          runners: week08-01-decarray,week08-02-initarray,week08-03-tdarray,week08-04-inittdary,week08-05-tdscore,week08-06-thdary,week08-07-arysize,week08-lab1-inputarray,week08-lab2-aryprint
+          runners: week09-01-basefunc,week09-02-funcadd,week09-03-functioncall,week09-04-aryparam,week09-05-twodaryfunc,week09-06-factorial,week09-09-math,week09-10-char,week09-lab1-intpower,week09-lab2-increment
