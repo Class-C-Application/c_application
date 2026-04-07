@@ -5,7 +5,7 @@
             "label": "C 실행 (한번에)",
             "type": "shell",
             // 1. 컴파일(gcc) -> 2. 실행(./out) -> 3. 실행파일 삭제(rm out)
-            "command": "prefix=$(basename ${file} | grep -o '^[0-9]*') && gcc ${fileDirname}/${prefix}*.c -o ${fileDirname}/out.temp && ${fileDirname}/out.temp && rm ${fileDirname}/out.temp",
+            "command": "prefix=$(basename ${file} | grep -o '^[0-9]*') && if [ -z \"$prefix\" ]; then gcc ${file} -o ${fileDirname}/out.temp; else gcc ${fileDirname}/${prefix}*.c -o ${fileDirname}/out.temp; fi && ${fileDirname}/out.temp && rm ${fileDirname}/out.temp",
             "group": {
                 "kind": "build",
                 "isDefault": true
