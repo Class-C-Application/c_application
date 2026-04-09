@@ -1,145 +1,158 @@
-name: GitHub Classroom Workflow - Week09
+name: GitHub Classroom Workflow - Week10
 on:
   push:
     paths:
-      - 'chapter09/**'
+      - 'chapter10/**'
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
   build:
-    name: Autograding Week09
+    name: Autograding Week10
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week09-01-basefunc
-        id: week09-01-basefunc
+      - name: week10-01-localvar
+        id: week10-01-localvar
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-01-basefunc
-          setup-command: gcc chapter09/01basefunc.c chapter09/01catalk.c -o w901
-          command: ./w901
+          test-name: week10-01-localvar
+          setup-command: gcc chapter10/01localvar.c -o w1001
+          command: ./w1001
           input: ""
-          expected-output: "메인 함수 종료입니다."
+          expected-output: "20 100"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-02-funcadd
-        id: week09-02-funcadd
+      - name: week10-02-global
+        id: week10-02-global
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-02-funcadd
-          setup-command: gcc chapter09/02funcadd.c -o w902
-          command: ./w902
+          test-name: week10-02-global
+          setup-command: gcc chapter10/02-1global.c chapter10/02-2circumference.c -o w1002
+          command: ./w1002
           input: ""
-          expected-output: "합: 8"
+          expected-output: "gi: 0"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-03-functioncall
-        id: week09-03-functioncall
+      - name: week10-03-regvar
+        id: week10-03-regvar
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-03-functioncall
-          setup-command: gcc chapter09/03functioncall.c chapter09/03others.c -o w903
-          command: ./w903
+          test-name: week10-03-regvar
+          setup-command: gcc chapter10/03regvar.c -o w1003
+          command: ./w1003
+          input: "10"
+          expected-output: "합: 55"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week10-04-slocal
+        id: week10-04-slocal
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week10-04-slocal
+          setup-command: gcc chapter10/04slocal.c -o w1004
+          command: ./w1004
           input: ""
-          expected-output: "최소: 10"
+          expected-output: "정적 지역변수 s: 14"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-04-aryparam
-        id: week09-04-aryparam
+      - name: week10-05-sgvar
+        id: week10-05-sgvar
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-04-aryparam
-          setup-command: gcc chapter09/04aryparam.c -o w904
-          command: ./w904
+          test-name: week10-05-sgvar
+          setup-command: gcc chapter10/05-1sgvar.c chapter10/05-2gfun.c -o w1005
+          command: ./w1005
           input: ""
-          expected-output: "메인에서 구한 합은 755"
+          expected-output: "전역 변수: 30"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-05-twodaryfunc
-        id: week09-05-twodaryfunc
+      - name: week10-06-sclass
+        id: week10-06-sclass
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-05-twodaryfunc
-          setup-command: gcc chapter09/05twodaryfunc.c -o w905
-          command: ./w905
+          test-name: week10-06-sclass
+          setup-command: gcc chapter10/06-1sclass.c chapter10/06-2out.c -o w1006
+          command: ./w1006
           input: ""
-          expected-output: "원소합은 129.000"
+          expected-output: "16 23 100"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-06-factorial
-        id: week09-06-factorial
+      - name: week10-07-forintbit
+        id: week10-07-forintbit
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-06-factorial
-          setup-command: gcc chapter09/06factorial.c -o w906
-          command: ./w906
+          test-name: week10-07-forintbit
+          setup-command: gcc chapter10/08forintbit.c -o w1007
+          command: ./w1007
           input: ""
-          expected-output: "10! = 3628800"
+          expected-output: "00000000000000000000000000001101"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-09-math
-        id: week09-09-math
+      - name: week10-08-forsum
+        id: week10-08-forsum
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-09-math
-          setup-command: gcc chapter09/09math.c -o w909 -lm
-          command: ./w909
+          test-name: week10-08-forsum
+          setup-command: gcc chapter10/09forsum.c -o w1008
+          command: ./w1008
           input: ""
-          expected-output: "제곱근(sqrt)"
+          expected-output: "1 ~ 10 합: 55"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-10-char
-        id: week09-10-char
+      - name: week10-09-inputsum
+        id: week10-09-inputsum
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-10-char
-          setup-command: gcc chapter09/10char.c -o w910
-          command: ./w910
-          input: "x"
-          expected-output: "변환: X"
+          test-name: week10-09-inputsum
+          setup-command: gcc chapter10/10inputsum.c -o w1009
+          command: ./w1009
+          input: "10"
+          expected-output: "합:  55"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week09-lab1-intpower
-        id: week09-lab1-intpower
+      - name: week10-lab2-svar
+        id: week10-lab2-svar
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week09-lab1-intpower
-          setup-command: gcc chapter09/lab1intpower.c -o w9lab1
-          command: ./w9lab1
-          input: "2 10"
-          expected-output: "제곱은 1024"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week09-lab2-increment
-        id: week09-lab2-increment
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week09-lab2-increment
-          setup-command: gcc chapter09/lab2increment.c -o w9lab2
-          command: ./w9lab2
+          test-name: week10-lab2-svar
+          setup-command: gcc chapter10/lab2svar.c -o w10lab2
+          command: ./w10lab2
           input: ""
-          expected-output: "배열 원소에 각각 3"
+          expected-output: "1 10"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week10-lab3-bank
+        id: week10-lab3-bank
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week10-lab3-bank
+          setup-command: gcc chapter10/lab3bank.c -o w10lab3
+          command: ./w10lab3
+          input: ""
+          expected-output: "70000"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -148,15 +161,16 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK09-01-BASEFUNC_RESULTS: "${{steps.week09-01-basefunc.outputs.result}}"
-          WEEK09-02-FUNCADD_RESULTS: "${{steps.week09-02-funcadd.outputs.result}}"
-          WEEK09-03-FUNCTIONCALL_RESULTS: "${{steps.week09-03-functioncall.outputs.result}}"
-          WEEK09-04-ARYPARAM_RESULTS: "${{steps.week09-04-aryparam.outputs.result}}"
-          WEEK09-05-TWODARYFUNC_RESULTS: "${{steps.week09-05-twodaryfunc.outputs.result}}"
-          WEEK09-06-FACTORIAL_RESULTS: "${{steps.week09-06-factorial.outputs.result}}"
-          WEEK09-09-MATH_RESULTS: "${{steps.week09-09-math.outputs.result}}"
-          WEEK09-10-CHAR_RESULTS: "${{steps.week09-10-char.outputs.result}}"
-          WEEK09-LAB1-INTPOWER_RESULTS: "${{steps.week09-lab1-intpower.outputs.result}}"
-          WEEK09-LAB2-INCREMENT_RESULTS: "${{steps.week09-lab2-increment.outputs.result}}"
+          WEEK10-01-LOCALVAR_RESULTS: "${{steps.week10-01-localvar.outputs.result}}"
+          WEEK10-02-GLOBAL_RESULTS: "${{steps.week10-02-global.outputs.result}}"
+          WEEK10-03-REGVAR_RESULTS: "${{steps.week10-03-regvar.outputs.result}}"
+          WEEK10-04-SLOCAL_RESULTS: "${{steps.week10-04-slocal.outputs.result}}"
+          WEEK10-05-SGVAR_RESULTS: "${{steps.week10-05-sgvar.outputs.result}}"
+          WEEK10-06-SCLASS_RESULTS: "${{steps.week10-06-sclass.outputs.result}}"
+          WEEK10-07-FORINTBIT_RESULTS: "${{steps.week10-07-forintbit.outputs.result}}"
+          WEEK10-08-FORSUM_RESULTS: "${{steps.week10-08-forsum.outputs.result}}"
+          WEEK10-09-INPUTSUM_RESULTS: "${{steps.week10-09-inputsum.outputs.result}}"
+          WEEK10-LAB2-SVAR_RESULTS: "${{steps.week10-lab2-svar.outputs.result}}"
+          WEEK10-LAB3-BANK_RESULTS: "${{steps.week10-lab3-bank.outputs.result}}"
         with:
-          runners: week09-01-basefunc,week09-02-funcadd,week09-03-functioncall,week09-04-aryparam,week09-05-twodaryfunc,week09-06-factorial,week09-09-math,week09-10-char,week09-lab1-intpower,week09-lab2-increment
+          runners: week10-01-localvar,week10-02-global,week10-03-regvar,week10-04-slocal,week10-05-sgvar,week10-06-sclass,week10-07-forintbit,week10-08-forsum,week10-09-inputsum,week10-lab2-svar,week10-lab3-bank
