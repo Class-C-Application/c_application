@@ -7,6 +7,7 @@
 #define MAX 100
 
 int guess; //정답인 전역변수 선언
+int testNum(int input); //전방 선언
 
 int main(void)
 {

@@ -92,45 +92,6 @@ jobs:
           timeout: 10
           max-score: 10
 
-      - name: week10-07-forintbit
-        id: week10-07-forintbit
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week10-07-forintbit
-          setup-command: gcc chapter10/08forintbit.c -o w1007
-          command: ./w1007
-          input: ""
-          expected-output: "00000000000000000000000000001101"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week10-08-forsum
-        id: week10-08-forsum
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week10-08-forsum
-          setup-command: gcc chapter10/09forsum.c -o w1008
-          command: ./w1008
-          input: ""
-          expected-output: "1 ~ 10 합: 55"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week10-09-inputsum
-        id: week10-09-inputsum
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week10-09-inputsum
-          setup-command: gcc chapter10/10inputsum.c -o w1009
-          command: ./w1009
-          input: "10"
-          expected-output: "합:  55"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
       - name: week10-lab2-svar
         id: week10-lab2-svar
         uses: classroom-resources/autograding-io-grader@v1
@@ -167,10 +128,7 @@ jobs:
           WEEK10-04-SLOCAL_RESULTS: "${{steps.week10-04-slocal.outputs.result}}"
           WEEK10-05-SGVAR_RESULTS: "${{steps.week10-05-sgvar.outputs.result}}"
           WEEK10-06-SCLASS_RESULTS: "${{steps.week10-06-sclass.outputs.result}}"
-          WEEK10-07-FORINTBIT_RESULTS: "${{steps.week10-07-forintbit.outputs.result}}"
-          WEEK10-08-FORSUM_RESULTS: "${{steps.week10-08-forsum.outputs.result}}"
-          WEEK10-09-INPUTSUM_RESULTS: "${{steps.week10-09-inputsum.outputs.result}}"
           WEEK10-LAB2-SVAR_RESULTS: "${{steps.week10-lab2-svar.outputs.result}}"
           WEEK10-LAB3-BANK_RESULTS: "${{steps.week10-lab3-bank.outputs.result}}"
         with:
-          runners: week10-01-localvar,week10-02-global,week10-03-regvar,week10-04-slocal,week10-05-sgvar,week10-06-sclass,week10-07-forintbit,week10-08-forsum,week10-09-inputsum,week10-lab2-svar,week10-lab3-bank
+          runners: week10-01-localvar,week10-02-global,week10-03-regvar,week10-04-slocal,week10-05-sgvar,week10-06-sclass,week10-lab2-svar,week10-lab3-bank

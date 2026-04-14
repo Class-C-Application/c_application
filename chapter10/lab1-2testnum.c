@@ -1,6 +1,6 @@
 int testNum(int input)
 {
-	extern guess; //전역변수 선언
+	extern int guess; //전역변수 선언
 
 	int result = 0;
 	if (input > guess)
