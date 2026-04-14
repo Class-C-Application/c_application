@@ -1,8 +1,8 @@
 void setgvar(int n)
 {
 	//전역변수는 선언 및 사용 가능
-	extern gvar;
-	gvar = n;
+	// extern 키워드를 사용해 전역변수 gvar를 int형으로 선언하세요
+	// gvar에 n을 대입하세요
 }
 
 void teststatic()
@@ -11,4 +11,3 @@ void teststatic()
 	//extern svar;
 	//svar = 5;
 }
-
