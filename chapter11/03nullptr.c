@@ -2,15 +2,11 @@
 
 int main(void)
 {
-	int data = 10;
-	int *p1 = NULL, *p2 = &data;
+	// int형 변수 data에 10을 저장하세요
+	// int형 포인터 p1을 NULL로, p2를 &data로 초기화하며 선언하세요
 
-	printf("%d\n", data);
-	printf("%p %p\n", p1, p2);
-
-	//int *p3, data2;
-	//printf("%p\n", p3); //int * 형의 쓰레기 값으로 오류
-	//printf("%d\n", data2); //int 형의 쓰레기 값으로 오류
+	// data 값을 %d로 출력하세요
+	// p1과 p2를 %p로 출력하세요 (공백 구분)
 
 	return 0;
 }

@@ -7,10 +7,9 @@ int main(void)
 
 	int *px = &x, *py = &y, *pd = &dummy;
 
-	// 변수 x과 y, dummy를 사용하지 않고 *px, *py, *pd를 사용해 두 변수를 서로 교환
-	*pd = *px;  // 변수 dummy에 x를 저장
-	*px = *py;	// 변수 m에 n을 저장
-	*py = *pd;  // 변수 n에 dummy를 저장
+	*pd = *px;
+	*px = *py;
+	*py = *pd;
 
 	printf("%d %d\n", x, y);
 
