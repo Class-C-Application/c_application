@@ -6,13 +6,12 @@ int slen(char* s);
 int main()
 {
 	char s[100];
-	// 문자배열 s에 표준입력한 한 행을 저장
-	gets_s(s, 100);
+	// 표준 입력으로 한 행을 s에 저장하세요 (gets_s 사용)
 
-	// 문자배열에 저장된 한 행을 반대로 출력
-	int idx = slen(s) - 1;
-	while (idx >= 0)
-		printf("%c", s[idx--]);
+	// slen 함수로 마지막 인덱스(길이-1)를 구하세요
+
+	// 인덱스를 마지막부터 0까지 줄이면서 각 문자를 printf로 출력하세요
+
 	printf("\n");
 
 	return 0;
@@ -20,9 +19,5 @@ int main()
 
 int slen(char* s)
 {
-	int cnt = 0;
-	char* p = s;
-	while (*p++)
-		cnt++;
-	return cnt;
+	// 포인터로 문자열을 순회하면서 문자 개수를 세어 반환하세요
 }

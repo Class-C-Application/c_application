@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS // strtok() 사용하기 위해 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 
@@ -6,17 +6,14 @@ int main(void)
 {
 	char str[] = "C and C++\t languages are best!";
 	char *delimiter = " !\t";
-	//char *next_token;
 
 	printf("문자열 \"%s\"을 >>\n", str);
 	printf("구분자[%s]를 이용하여 토큰을 추출 >>\n", delimiter);
-	char* ptoken = strtok(str, delimiter);
-	//char* ptoken = strtok_s(str, delimiter, &next_token);
-	while (ptoken) //(ptoken != NULL)
+	char* ptoken = [       ](str, delimiter); // 가이드: 첫 번째 토큰을 반환하는 함수
+	while (ptoken)
 	{
 		printf("%s\n", ptoken);
-		ptoken = strtok(NULL, delimiter); //다음 토큰을 반환
-		//ptoken = strtok_s(NULL, delimiter, &next_token); //다음 토큰을 반환
+		ptoken = strtok([    ], delimiter); // 가이드: 다음 토큰을 얻으려면 첫 인자에 무엇을 전달?
 	}
 
 	return 0;
