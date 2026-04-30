@@ -1,236 +1,158 @@
-name: GitHub Classroom Workflow - Week11
+name: GitHub Classroom Workflow - Week12
 on:
   push:
     paths:
-      - 'chapter11/**'
+      - 'chapter12/**'
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
   build:
-    name: Autograding Week11
+    name: Autograding Week12
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week11-01-address
-        id: week11-01-address
+      - name: week12-01-chstrprt
+        id: week12-01-chstrprt
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-01-address
-          setup-command: gcc chapter11/01address.c -o w1101
-          command: ./w1101
-          input: "100"
-          expected-output: "100"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-02-pointer
-        id: week11-02-pointer
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-02-pointer
-          setup-command: gcc chapter11/02pointer.c -o w1102
-          command: ./w1102
+          test-name: week12-01-chstrprt
+          setup-command: gcc chapter12/01chstrprt.c -o w1201
+          command: ./w1201
           input: ""
-          expected-output: "100"
+          expected-output: "C #"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-03-nullptr
-        id: week11-03-nullptr
+      - name: week12-03-strsplit
+        id: week12-03-strsplit
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-03-nullptr
-          setup-command: gcc chapter11/03nullptr.c -o w1103
-          command: ./w1103
+          test-name: week12-03-strsplit
+          setup-command: gcc chapter12/03strsplit.c -o w1203
+          command: ./w1203
           input: ""
-          expected-output: "10"
+          expected-output: "C C++ Java"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-04-dereference
-        id: week11-04-dereference
+      - name: week12-06-strfun
+        id: week12-06-strfun
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-04-dereference
-          setup-command: gcc chapter11/04dereference.c -o w1104
-          command: ./w1104
+          test-name: week12-06-strfun
+          setup-command: gcc chapter12/06strfun.c -o w1206
+          command: ./w1206
           input: ""
-          expected-output: "200"
+          expected-output: "strncmp(C lang, C , 2) = 0"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-05-arithptr
-        id: week11-05-arithptr
+      - name: week12-07-strcpycat
+        id: week12-07-strcpycat
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-05-arithptr
-          setup-command: gcc chapter11/05arithptr.c -o w1105
-          command: ./w1105
+          test-name: week12-07-strcpycat
+          setup-command: gcc chapter12/07strcpycat.c -o w1207
+          command: ./w1207
           input: ""
-          expected-output: "104"
+          expected-output: "C is a procedural language."
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-06-ptypecast
-        id: week11-06-ptypecast
+      - name: week12-08-strtok
+        id: week12-08-strtok
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-06-ptypecast
-          setup-command: gcc chapter11/06ptypecast.c -o w1106
-          command: ./w1106
+          test-name: week12-08-strtok
+          setup-command: gcc chapter12/08strtok.c -o w1208
+          command: ./w1208
           input: ""
-          expected-output: "A"
+          expected-output: "best"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-07-multptr
-        id: week11-07-multptr
+      - name: week12-10-strary
+        id: week12-10-strary
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-07-multptr
-          setup-command: gcc chapter11/07multptr.c -o w1107
-          command: ./w1107
+          test-name: week12-10-strary
+          setup-command: gcc chapter12/10strary.c -o w1210
+          command: ./w1210
           input: ""
-          expected-output: "130"
+          expected-output: "A # +"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-08-varptrop
-        id: week11-08-varptrop
+      - name: week12-11-cmdarg
+        id: week12-11-cmdarg
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-08-varptrop
-          setup-command: gcc chapter11/08varptrop.c -o w1108
-          command: ./w1108
+          test-name: week12-11-cmdarg
+          setup-command: gcc chapter12/11cmdarg.c -o w1211
+          command: ./w1211
           input: ""
-          expected-output: "20"
+          expected-output: "argc = 1"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-09-constptr
-        id: week11-09-constptr
+      - name: week12-lab1-lineprt
+        id: week12-lab1-lineprt
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-09-constptr
-          setup-command: gcc chapter11/09constptr.c -o w1109
-          command: ./w1109
+          test-name: week12-lab1-lineprt
+          setup-command: gcc "-Dgets_s(s,n)=gets(s)" chapter12/lab1lineprt.c -o w12lab1
+          command: ./w12lab1
+          input: "Hello World"
+          expected-output: "Hello World"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week12-lab2-reversestr
+        id: week12-lab2-reversestr
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week12-lab2-reversestr
+          setup-command: gcc chapter12/lab2reversestr.c -o w12lab2
+          command: ./w12lab2
           input: ""
-          expected-output: "20"
+          expected-output: "C nohtyP"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-10-ptrary
-        id: week11-10-ptrary
+      - name: week12-lab3-strprocess
+        id: week12-lab3-strprocess
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-10-ptrary
-          setup-command: gcc chapter11/10ptrary.c -o w1110
-          command: ./w1110
+          test-name: week12-lab3-strprocess
+          setup-command: gcc chapter12/lab3strprocess.c -o w12lab3
+          command: ./w12lab3
           input: ""
-          expected-output: "5 9 15"
+          expected-output: "y o e"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week11-11-tdary
-        id: week11-11-tdary
+      - name: week12-lab4-mtable
+        id: week12-lab4-mtable
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week11-11-tdary
-          setup-command: gcc chapter11/11tdary.c -o w1111
-          command: ./w1111
-          input: ""
-          expected-output: "10 20 30"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-12-tdaryptr
-        id: week11-12-tdaryptr
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-12-tdaryptr
-          setup-command: gcc chapter11/12tdaryptr.c -o w1112
-          command: ./w1112
-          input: ""
-          expected-output: "10 50"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-13-aryptr
-        id: week11-13-aryptr
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-13-aryptr
-          setup-command: gcc chapter11/13aryptr.c -o w1113
-          command: ./w1113
-          input: "100\n200\n300"
-          expected-output: "100, 200, 300"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-lab1-basicptr
-        id: week11-lab1-basicptr
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-lab1-basicptr
-          setup-command: gcc chapter11/lab1basicptr.c -o w11lab1
-          command: ./w11lab1
-          input: ""
-          expected-output: "100"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-lab2-swap
-        id: week11-lab2-swap
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-lab2-swap
-          setup-command: gcc chapter11/lab2swap.c -o w11lab2
-          command: ./w11lab2
-          input: ""
-          expected-output: "700 500"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-lab3-ptrsum
-        id: week11-lab3-ptrsum
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-lab3-ptrsum
-          setup-command: gcc chapter11/lab3ptrsum.c -o w11lab3
-          command: ./w11lab3
-          input: "3.5 2.7"
-          expected-output: "6.20"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week11-lab4-mtable
-        id: week11-lab4-mtable
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week11-lab4-mtable
-          setup-command: gcc chapter11/lab4mtable.c -o w11lab4
-          command: ./w11lab4
-          input: ""
-          expected-output: "2*2 =  4"
+          test-name: week12-lab4-mtable
+          setup-command: gcc "-Dgets_s(s,n)=gets(s)" chapter12/lab4mtable.c -o w12lab4
+          command: ./w12lab4
+          input: "Hello"
+          expected-output: "olleH"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -239,22 +161,16 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK11-01-ADDRESS_RESULTS: "${{steps.week11-01-address.outputs.result}}"
-          WEEK11-02-POINTER_RESULTS: "${{steps.week11-02-pointer.outputs.result}}"
-          WEEK11-03-NULLPTR_RESULTS: "${{steps.week11-03-nullptr.outputs.result}}"
-          WEEK11-04-DEREFERENCE_RESULTS: "${{steps.week11-04-dereference.outputs.result}}"
-          WEEK11-05-ARITHPTR_RESULTS: "${{steps.week11-05-arithptr.outputs.result}}"
-          WEEK11-06-PTYPECAST_RESULTS: "${{steps.week11-06-ptypecast.outputs.result}}"
-          WEEK11-07-MULTPTR_RESULTS: "${{steps.week11-07-multptr.outputs.result}}"
-          WEEK11-08-VARPTROP_RESULTS: "${{steps.week11-08-varptrop.outputs.result}}"
-          WEEK11-09-CONSTPTR_RESULTS: "${{steps.week11-09-constptr.outputs.result}}"
-          WEEK11-10-PTRARY_RESULTS: "${{steps.week11-10-ptrary.outputs.result}}"
-          WEEK11-11-TDARY_RESULTS: "${{steps.week11-11-tdary.outputs.result}}"
-          WEEK11-12-TDARYPTR_RESULTS: "${{steps.week11-12-tdaryptr.outputs.result}}"
-          WEEK11-13-ARYPTR_RESULTS: "${{steps.week11-13-aryptr.outputs.result}}"
-          WEEK11-LAB1-BASICPTR_RESULTS: "${{steps.week11-lab1-basicptr.outputs.result}}"
-          WEEK11-LAB2-SWAP_RESULTS: "${{steps.week11-lab2-swap.outputs.result}}"
-          WEEK11-LAB3-PTRSUM_RESULTS: "${{steps.week11-lab3-ptrsum.outputs.result}}"
-          WEEK11-LAB4-MTABLE_RESULTS: "${{steps.week11-lab4-mtable.outputs.result}}"
+          WEEK12-01-CHSTRPRT_RESULTS: "${{steps.week12-01-chstrprt.outputs.result}}"
+          WEEK12-03-STRSPLIT_RESULTS: "${{steps.week12-03-strsplit.outputs.result}}"
+          WEEK12-06-STRFUN_RESULTS: "${{steps.week12-06-strfun.outputs.result}}"
+          WEEK12-07-STRCPYCAT_RESULTS: "${{steps.week12-07-strcpycat.outputs.result}}"
+          WEEK12-08-STRTOK_RESULTS: "${{steps.week12-08-strtok.outputs.result}}"
+          WEEK12-10-STRARY_RESULTS: "${{steps.week12-10-strary.outputs.result}}"
+          WEEK12-11-CMDARG_RESULTS: "${{steps.week12-11-cmdarg.outputs.result}}"
+          WEEK12-LAB1-LINEPRT_RESULTS: "${{steps.week12-lab1-lineprt.outputs.result}}"
+          WEEK12-LAB2-REVERSESTR_RESULTS: "${{steps.week12-lab2-reversestr.outputs.result}}"
+          WEEK12-LAB3-STRPROCESS_RESULTS: "${{steps.week12-lab3-strprocess.outputs.result}}"
+          WEEK12-LAB4-MTABLE_RESULTS: "${{steps.week12-lab4-mtable.outputs.result}}"
         with:
-          runners: week11-01-address,week11-02-pointer,week11-03-nullptr,week11-04-dereference,week11-05-arithptr,week11-06-ptypecast,week11-07-multptr,week11-08-varptrop,week11-09-constptr,week11-10-ptrary,week11-11-tdary,week11-12-tdaryptr,week11-13-aryptr,week11-lab1-basicptr,week11-lab2-swap,week11-lab3-ptrsum,week11-lab4-mtable
+          runners: week12-01-chstrprt,week12-03-strsplit,week12-06-strfun,week12-07-strcpycat,week12-08-strtok,week12-10-strary,week12-11-cmdarg,week12-lab1-lineprt,week12-lab2-reversestr,week12-lab3-strprocess,week12-lab4-mtable
