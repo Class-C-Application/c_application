@@ -10,19 +10,17 @@ int main(void)
 		double real;
 	};
 
-	//유니온 union data를 다시 자료형 udata로 정의
 	typedef union data udata;
 
-	//udata 형으로 value와 포인터 p 선언 
-	udata value, *p;
+	udata value, [  ];	// 가이드: 포인터 변수 p 선언
 
-	p = &value;
-	p->ch = 'a';
-	printf("%c %c\n", p->ch, (*p).ch);
-	p->cnt = 100;
-	printf("%d ", p->cnt);
-	p->real = 3.14;
-	printf("%.2f \n", p->real);
+	[  ] = [      ];	// 가이드: p = &value
+	[       ] = 'a';	// 가이드: p->ch
+	printf("%c %c\n", [      ], [         ]);	// 가이드: p->ch, (*p).ch
+	[       ] = 100;	// 가이드: p->cnt
+	printf("%d ", [      ]);	// 가이드: p->cnt
+	[        ] = 3.14;	// 가이드: p->real
+	printf("%.2f \n", [      ]);	// 가이드: p->real
 
 	return 0;
 }

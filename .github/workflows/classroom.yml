@@ -40,19 +40,6 @@ jobs:
           timeout: 10
           max-score: 10
 
-      - name: week13-03-structcmp
-        id: week13-03-structcmp
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week13-03-structcmp
-          setup-command: gcc chapter13/03structcmp.c -o w1303
-          command: ./w1303
-          input: "나한국"
-          expected-output: "내용이 같은 구조체입니다."
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
       - name: week13-04-union
         id: week13-04-union
         uses: classroom-resources/autograding-io-grader@v1
@@ -176,7 +163,6 @@ jobs:
         env:
           WEEK13-01-STRUCTBASIC_RESULTS: "${{steps.week13-01-structbasic.outputs.result}}"
           WEEK13-02-NESTEDSTRUCT_RESULTS: "${{steps.week13-02-nestedstruct.outputs.result}}"
-          WEEK13-03-STRUCTCMP_RESULTS: "${{steps.week13-03-structcmp.outputs.result}}"
           WEEK13-04-UNION_RESULTS: "${{steps.week13-04-union.outputs.result}}"
           WEEK13-05-TYPEDEF_RESULTS: "${{steps.week13-05-typedef.outputs.result}}"
           WEEK13-06-TDEFSTRUCT_RESULTS: "${{steps.week13-06-tdefstruct.outputs.result}}"
@@ -187,4 +173,4 @@ jobs:
           WEEK13-LAB2-STRUCTMOVIE_RESULTS: "${{steps.week13-lab2-structmovie.outputs.result}}"
           WEEK13-LAB3-BOXOFFICE_RESULTS: "${{steps.week13-lab3-boxoffice.outputs.result}}"
         with:
-          runners: week13-01-structbasic,week13-02-nestedstruct,week13-03-structcmp,week13-04-union,week13-05-typedef,week13-06-tdefstruct,week13-07-structptr,week13-08-unionptr,week13-09-structary,week13-lab1-structcity,week13-lab2-structmovie,week13-lab3-boxoffice
+          runners: week13-01-structbasic,week13-02-nestedstruct,week13-04-union,week13-05-typedef,week13-06-tdefstruct,week13-07-structptr,week13-08-unionptr,week13-09-structary,week13-lab1-structcity,week13-lab2-structmovie,week13-lab3-boxoffice
