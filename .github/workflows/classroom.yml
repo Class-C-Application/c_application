@@ -1,158 +1,171 @@
-name: GitHub Classroom Workflow - Week12
+name: GitHub Classroom Workflow - Week13
 on:
   push:
     paths:
-      - 'chapter12/**'
+      - 'chapter13/**'
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
   build:
-    name: Autograding Week12
+    name: Autograding Week13
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week12-01-chstrprt
-        id: week12-01-chstrprt
+      - name: week13-01-structbasic
+        id: week13-01-structbasic
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-01-chstrprt
-          setup-command: gcc chapter12/01chstrprt.c -o w1201
-          command: ./w1201
+          test-name: week13-01-structbasic
+          setup-command: gcc chapter13/01structbasic.c -o w1301
+          command: ./w1301
           input: ""
-          expected-output: "C #"
+          expected-output: "300000.00"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-03-strsplit
-        id: week12-03-strsplit
+      - name: week13-02-nestedstruct
+        id: week13-02-nestedstruct
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-03-strsplit
-          setup-command: gcc chapter12/03strsplit.c -o w1203
-          command: ./w1203
+          test-name: week13-02-nestedstruct
+          setup-command: gcc chapter13/02nestedstruct.c -o w1302
+          command: ./w1302
           input: ""
-          expected-output: "C C++ Java"
+          expected-output: "[2022. 3. 9]"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-06-strfun
-        id: week12-06-strfun
+      - name: week13-03-structcmp
+        id: week13-03-structcmp
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-06-strfun
-          setup-command: gcc chapter12/06strfun.c -o w1206
-          command: ./w1206
+          test-name: week13-03-structcmp
+          setup-command: gcc chapter13/03structcmp.c -o w1303
+          command: ./w1303
+          input: "나한국"
+          expected-output: "내용이 같은 구조체입니다."
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week13-04-union
+        id: week13-04-union
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week13-04-union
+          setup-command: gcc chapter13/04union.c -o w1304
+          command: ./w1304
           input: ""
-          expected-output: "strncmp(C lang, C , 2) = 0"
+          expected-output: "3.780000"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-07-strcpycat
-        id: week12-07-strcpycat
+      - name: week13-05-typedef
+        id: week13-05-typedef
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-07-strcpycat
-          setup-command: gcc chapter12/07strcpycat.c -o w1207
-          command: ./w1207
+          test-name: week13-05-typedef
+          setup-command: gcc chapter13/05typedef.c -o w1305
+          command: ./w1305
           input: ""
-          expected-output: "C is a procedural language."
+          expected-output: "24500000"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-08-strtok
-        id: week12-08-strtok
+      - name: week13-06-tdefstruct
+        id: week13-06-tdefstruct
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-08-strtok
-          setup-command: gcc chapter12/08strtok.c -o w1208
-          command: ./w1208
+          test-name: week13-06-tdefstruct
+          setup-command: gcc chapter13/06tdefstruct.c -o w1306
+          command: ./w1306
           input: ""
-          expected-output: "best"
+          expected-output: "2022. 8. 29"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-10-strary
-        id: week12-10-strary
+      - name: week13-07-structptr
+        id: week13-07-structptr
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-10-strary
-          setup-command: gcc chapter12/10strary.c -o w1210
-          command: ./w1210
+          test-name: week13-07-structptr
+          setup-command: gcc chapter13/07structptr.c -o w1307
+          command: ./w1307
           input: ""
-          expected-output: "A # +"
+          expected-output: "전공필수"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-11-cmdarg
-        id: week12-11-cmdarg
+      - name: week13-08-unionptr
+        id: week13-08-unionptr
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-11-cmdarg
-          setup-command: gcc chapter12/11cmdarg.c -o w1211
-          command: ./w1211
+          test-name: week13-08-unionptr
+          setup-command: gcc chapter13/08unionptr.c -o w1308
+          command: ./w1308
           input: ""
-          expected-output: "argc = 1"
+          expected-output: "3.14"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-lab1-lineprt
-        id: week12-lab1-lineprt
+      - name: week13-09-structary
+        id: week13-09-structary
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-lab1-lineprt
-          setup-command: gcc "-Dgets_s(s,n)=gets(s)" chapter12/lab1lineprt.c -o w12lab1
-          command: ./w12lab1
-          input: "Hello World"
-          expected-output: "Hello World"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week12-lab2-reversestr
-        id: week12-lab2-reversestr
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week12-lab2-reversestr
-          setup-command: gcc chapter12/lab2reversestr.c -o w12lab2
-          command: ./w12lab2
+          test-name: week13-09-structary
+          setup-command: gcc chapter13/09structary.c -o w1309
+          command: ./w1309
           input: ""
-          expected-output: "C nohtyP"
+          expected-output: "배열크기: 5"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-lab3-strprocess
-        id: week12-lab3-strprocess
+      - name: week13-lab1-structcity
+        id: week13-lab1-structcity
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-lab3-strprocess
-          setup-command: gcc chapter12/lab3strprocess.c -o w12lab3
-          command: ./w12lab3
+          test-name: week13-lab1-structcity
+          setup-command: gcc chapter13/lab1structcity.c -o w13lab1
+          command: ./w13lab1
           input: ""
-          expected-output: "y o e"
+          expected-output: "[서울]"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week12-lab4-mtable
-        id: week12-lab4-mtable
+      - name: week13-lab2-structmovie
+        id: week13-lab2-structmovie
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week12-lab4-mtable
-          setup-command: gcc "-Dgets_s(s,n)=gets(s)" chapter12/lab4mtable.c -o w12lab4
-          command: ./w12lab4
-          input: "Hello"
-          expected-output: "olleH"
+          test-name: week13-lab2-structmovie
+          setup-command: gcc chapter13/lab2structmovie.c -o w13lab2
+          command: ./w13lab2
+          input: ""
+          expected-output: "310000000000"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week13-lab3-boxoffice
+        id: week13-lab3-boxoffice
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week13-lab3-boxoffice
+          setup-command: gcc chapter13/lab3boxoffice.c -o w13lab3
+          command: ./w13lab3
+          input: ""
+          expected-output: "김용화"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -161,16 +174,17 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK12-01-CHSTRPRT_RESULTS: "${{steps.week12-01-chstrprt.outputs.result}}"
-          WEEK12-03-STRSPLIT_RESULTS: "${{steps.week12-03-strsplit.outputs.result}}"
-          WEEK12-06-STRFUN_RESULTS: "${{steps.week12-06-strfun.outputs.result}}"
-          WEEK12-07-STRCPYCAT_RESULTS: "${{steps.week12-07-strcpycat.outputs.result}}"
-          WEEK12-08-STRTOK_RESULTS: "${{steps.week12-08-strtok.outputs.result}}"
-          WEEK12-10-STRARY_RESULTS: "${{steps.week12-10-strary.outputs.result}}"
-          WEEK12-11-CMDARG_RESULTS: "${{steps.week12-11-cmdarg.outputs.result}}"
-          WEEK12-LAB1-LINEPRT_RESULTS: "${{steps.week12-lab1-lineprt.outputs.result}}"
-          WEEK12-LAB2-REVERSESTR_RESULTS: "${{steps.week12-lab2-reversestr.outputs.result}}"
-          WEEK12-LAB3-STRPROCESS_RESULTS: "${{steps.week12-lab3-strprocess.outputs.result}}"
-          WEEK12-LAB4-MTABLE_RESULTS: "${{steps.week12-lab4-mtable.outputs.result}}"
+          WEEK13-01-STRUCTBASIC_RESULTS: "${{steps.week13-01-structbasic.outputs.result}}"
+          WEEK13-02-NESTEDSTRUCT_RESULTS: "${{steps.week13-02-nestedstruct.outputs.result}}"
+          WEEK13-03-STRUCTCMP_RESULTS: "${{steps.week13-03-structcmp.outputs.result}}"
+          WEEK13-04-UNION_RESULTS: "${{steps.week13-04-union.outputs.result}}"
+          WEEK13-05-TYPEDEF_RESULTS: "${{steps.week13-05-typedef.outputs.result}}"
+          WEEK13-06-TDEFSTRUCT_RESULTS: "${{steps.week13-06-tdefstruct.outputs.result}}"
+          WEEK13-07-STRUCTPTR_RESULTS: "${{steps.week13-07-structptr.outputs.result}}"
+          WEEK13-08-UNIONPTR_RESULTS: "${{steps.week13-08-unionptr.outputs.result}}"
+          WEEK13-09-STRUCTARY_RESULTS: "${{steps.week13-09-structary.outputs.result}}"
+          WEEK13-LAB1-STRUCTCITY_RESULTS: "${{steps.week13-lab1-structcity.outputs.result}}"
+          WEEK13-LAB2-STRUCTMOVIE_RESULTS: "${{steps.week13-lab2-structmovie.outputs.result}}"
+          WEEK13-LAB3-BOXOFFICE_RESULTS: "${{steps.week13-lab3-boxoffice.outputs.result}}"
         with:
-          runners: week12-01-chstrprt,week12-03-strsplit,week12-06-strfun,week12-07-strcpycat,week12-08-strtok,week12-10-strary,week12-11-cmdarg,week12-lab1-lineprt,week12-lab2-reversestr,week12-lab3-strprocess,week12-lab4-mtable
+          runners: week13-01-structbasic,week13-02-nestedstruct,week13-03-structcmp,week13-04-union,week13-05-typedef,week13-06-tdefstruct,week13-07-structptr,week13-08-unionptr,week13-09-structary,week13-lab1-structcity,week13-lab2-structmovie,week13-lab3-boxoffice
