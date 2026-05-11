@@ -13,18 +13,15 @@ struct account
 int main(void)
 {
 	//구조체 변수 선언 및 초기화
-	struct account mine = { [          ], [    ], [        ] };
+	
 	// 가이드: "홍길동", 1001, 300000 순서로 초기화
-	struct account yours;
+	
 
-	[                               ];	// 가이드: strcpy로 yours.name에 "이동원" 저장
-	yours.actnum = [    ];	// 가이드: 1002
-	yours.balance = [        ];	// 가이드: 500000
-
-	printf("구조체 크기: %zu\n", sizeof([    ]));
+	
+	printf("구조체 크기: %zu\n", );
 	printf("%s %d %.2f\n", [         ], [           ], [           ]);
 	// 가이드: mine.name, mine.actnum, mine.balance
-	printf("%s %d %.2f\n", yours.name, yours.actnum, yours.balance);
+	printf("%s %d %.2f\n", );
 
 	return 0;
 }
