@@ -2,15 +2,7 @@
 
 int main(void)
 {
-	//공용체 union data 정의
-	union data
-	{
-		char ch;
-		int cnt;
-		double real;
-	};
 
-	typedef union data udata;
 
 	udata value, [  ];	// 가이드: 포인터 변수 p 선언
 
