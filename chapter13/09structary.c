@@ -1,21 +1,13 @@
 #include <stdio.h>
 
-struct lecture
-{
-	char name[20];	//강좌명
-	int type;		//강좌구분
-	int credit;		//학점
-	int hours;		//시수
-};
-typedef struct lecture lecture;
 
-char* lectype[] = { "교양", "일반선택", "전공필수", "전공선택" };
-char* head[] = { "강좌명", "강좌구분", "학점", "시수" };
+[        ] = { "교양", "일반선택", "전공필수", "전공선택" };
+[        ] = { "강좌명", "강좌구분", "학점", "시수" };
 
 int main(void)
 {
 	//구조체 lecture의 배열 선언 및 초기화
-	lecture course[] = { { "인간과 사회", 0, 2, 2 },
+	[       ] = { { "인간과 사회", 0, 2, 2 },
 						 { "경제학개론", 1, 3, 3 },
 						 { "자료구조", 2, 3, 3 },
 						 { "모바일프로그래밍", 2, 3, 4 },
