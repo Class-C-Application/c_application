@@ -12,8 +12,8 @@ int main(void)
 	printf("두 정수 입력: ");
 	scanf("%d %d", &m, &n);
 
-	printf("두 정수 합: %d\n", *add(&sum, m, n));
-	printf("두 정수 차: %d\n", *subtract(&diff, m, n));
+	printf("두 정수 합: %d\n", *add(        , m, n));
+	printf("두 정수 차: %d\n", *subtract(        , m, n));
 	printf("두 정수 곱: %d\n", *multiply(m, n));
 
 	return 0;
@@ -21,16 +21,18 @@ int main(void)
 
 int* add(int* psum, int a, int b)
 {
-	*psum = a + b;
+	// 가이드: psum이 가리키는 변수에 합 저장
+	
 	return psum;
 }
 int* subtract(int* pdiff, int a, int b)
 {
-	*pdiff = a - b;
+	// 가이드: pdiff가 가리키는 변수에 차 저장
+	
 	return pdiff;
 }
 int* multiply(int a, int b)
 {
-	int mult = a * b;
+	int mult = ;
 	return &mult;
 }

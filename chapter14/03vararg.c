@@ -17,10 +17,11 @@ double avg(int numagrs, ...) //매개변수 numargs는 가변인자의 수를 �
 	double total = 0; //합이 저장될 변수
 
 	va_list argp; //1. 가변인자 변수 선언
-	va_start(argp, numagrs); //2. numargs 이후의 가변인자 처리 시작 
+	va_start(argp,        ); //2. numargs 이후의 가변인자 처리 시작 
 	for (int i = 0; i < numagrs; i++) //3. 가변인자 얻기
-		total += va_arg(argp, double); //지정하는 double 형으로 가변인자 하나를 반환
+		// 가이드: double 형 가변인자를 하나씩 꺼내 total에 더하기
+		total += ;
 	va_end(argp); //4. 가변인자 처리 종료
 
-	return total / numagrs;
+	return ;
 }

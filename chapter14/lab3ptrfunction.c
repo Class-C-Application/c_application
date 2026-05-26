@@ -7,9 +7,9 @@ int subt(int a, int b);
 int main(void)
 {
 	int (*pfunary[3])(int, int);
-	pfunary[0] = add;
-	pfunary[1] = mult;
-	pfunary[2] = subt;
+	pfunary[0] = ;
+	pfunary[1] = ;
+	pfunary[2] = ;
 
 	int m = 8, n = 6;
 	char* ops = "*+-";
@@ -17,12 +17,12 @@ int main(void)
 	while (op = *ops++)
 		switch (op)
 		{
-		case '+': printf("%c 결과: %d\n", op, pfunary[0](m, n));
-			break;
-		case '-': printf("%c 결과: %d\n", op, pfunary[2](m, n));
-			break;
-		case '*': printf("%c 결과: %d\n", op, pfunary[1](m, n));
-			break;
+			case '+': printf("%c 결과: %d\n", op, pfunary[   ](m, n));
+				break;
+			case '-': printf("%c 결과: %d\n", op, pfunary[   ](m, n));
+				break;
+			case '*': printf("%c 결과: %d\n", op, pfunary[   ](m, n));
+				break;
 		}
 
 	return 0;
@@ -30,13 +30,13 @@ int main(void)
 
 int add(int a, int b)
 {
-	return a + b;
+	return ;
 }
 int mult(int a, int b)
 {
-	return a * b;
+	return ;
 }
 int subt(int a, int b)
 {
-	return a - b;
+	return ;
 }

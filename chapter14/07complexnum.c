@@ -19,7 +19,8 @@ int main(void)
 	printcomplex(comp);
 	pcomp = pcomplexvalue(comp);
 	printcomplex(pcomp);
-	pcomplexaddress(&pcomp);
+	// 가이드: pcomp의 주소를 인자로 전달
+	pcomplexaddress(        );
 	printcomplex(pcomp);
 
 	return 0;
@@ -28,18 +29,20 @@ int main(void)
 //구조체 자체를 인자로 사용
 void printcomplex(complex com)
 {
-	printf("복소수 = %5.1f + %5.1fi \n", com.real, com.img);
+	printf("복소수 = %5.1f + %5.1fi \n",        ,        );
 }
 
 //구조체 자체를 인자로 사용하여 처리된 구조체를 다시 반환
 complex pcomplexvalue(complex com)
 {
-	com.img = -com.img;
+	// 가이드: 허수부의 부호 변경
+	
 	return com; //구조체를 반환
 }
 
 //구조체 포인터를 인자로 사용
 void pcomplexaddress(complex* com)
 {
-	com->img = -com->img;
+	// 가이드: 구조체 포인터를 이용해 허수부의 부호 변경
+	
 }

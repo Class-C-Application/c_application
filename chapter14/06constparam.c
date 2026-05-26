@@ -10,8 +10,9 @@ int main(void)
 
 	printf("두 실수 입력: ");
 	scanf("%lf %lf", &m, &n);
-	multiply(&mult, &m, &n);
-	devideandincrement(&dev, &m, &n);
+	// 가이드: 결과 변수와 입력 변수의 주소를 전달
+	multiply(        , &m, &n);
+	devideandincrement(        , &m, &n);
 	printf("두 실수 곱: %.2f, 나눔: %.2f\n", mult, dev);
 	printf("연산 후 두 실수: %.2f, %.2f\n", m, n);
 
@@ -22,7 +23,8 @@ int main(void)
 //매개변수 포인터 a, b가 가리키는 변수의 내용은 수정하지 못함
 void multiply(double* result, const double* a, const double* b)
 {
-	*result = *a * *b;
+	// 가이드: a와 b가 가리키는 값을 곱해 result가 가리키는 변수에 저장
+	
 	//*a = *a + 1; //오류발생
 	//*b = *b + 1; //오류발생
 }
@@ -31,7 +33,6 @@ void multiply(double* result, const double* a, const double* b)
 //a, b가 가리키는 변수의 내용을 모두 1 증가시킴
 void devideandincrement(double* result, double* a, double* b)
 {
-	*result = *a / *b;
-	++* a;  //++(*a)이므로 a가 가리키는 변수의 값을 1 증가
-	(*b)++; //b가 가리키는 변수의 값을 1 증가, *b++와는 다름
+	// 가이드: 나눗셈 결과 저장 후 a와 b가 가리키는 값을 각각 1 증가
+	
 }
