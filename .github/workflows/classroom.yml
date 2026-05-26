@@ -1,158 +1,184 @@
-name: GitHub Classroom Workflow - Week13
+name: GitHub Classroom Workflow - Week14
 on:
   push:
     paths:
-      - 'chapter13/**'
+      - 'chapter14/**'
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
   build:
-    name: Autograding Week13
+    name: Autograding Week14
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week13-01-structbasic
-        id: week13-01-structbasic
+      - name: week14-01-callby
+        id: week14-01-callby
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-01-structbasic
-          setup-command: gcc chapter13/01structbasic.c -o w1301
-          command: ./w1301
+          test-name: week14-01-callby
+          setup-command: gcc chapter14/01callby.c -o w1401
+          command: ./w1401
           input: ""
-          expected-output: "300000.00"
+          expected-output: "120"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-02-nestedstruct
-        id: week13-02-nestedstruct
+      - name: week14-02-aryparam
+        id: week14-02-aryparam
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-02-nestedstruct
-          setup-command: gcc chapter13/02nestedstruct.c -o w1302
-          command: ./w1302
+          test-name: week14-02-aryparam
+          setup-command: gcc chapter14/02aryparam.c -o w1402
+          command: ./w1402
           input: ""
-          expected-output: "[2022. 3. 9]"
+          expected-output: "755"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-04-union
-        id: week13-04-union
+      - name: week14-03-vararg
+        id: week14-03-vararg
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-04-union
-          setup-command: gcc chapter13/04union.c -o w1304
-          command: ./w1304
+          test-name: week14-03-vararg
+          setup-command: gcc chapter14/03vararg.c -o w1403
+          command: ./w1403
           input: ""
-          expected-output: "3.780000"
+          expected-output: "3.40"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-05-typedef
-        id: week13-05-typedef
+      - name: week14-04-ptrparam
+        id: week14-04-ptrparam
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-05-typedef
-          setup-command: gcc chapter13/05typedef.c -o w1305
-          command: ./w1305
-          input: ""
-          expected-output: "24500000"
+          test-name: week14-04-ptrparam
+          setup-command: gcc chapter14/04ptrparam.c -o w1404
+          command: ./w1404
+          input: "3 5"
+          expected-output: "8"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-06-tdefstruct
-        id: week13-06-tdefstruct
+      - name: week14-05-ptrreturn
+        id: week14-05-ptrreturn
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-06-tdefstruct
-          setup-command: gcc chapter13/06tdefstruct.c -o w1306
-          command: ./w1306
-          input: ""
-          expected-output: "2022. 8. 29"
+          test-name: week14-05-ptrreturn
+          setup-command: gcc chapter14/05ptrreturn.c -o w1405
+          command: ./w1405
+          input: "4 3"
+          expected-output: "7"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-07-structptr
-        id: week13-07-structptr
+      - name: week14-06-constparam
+        id: week14-06-constparam
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-07-structptr
-          setup-command: gcc chapter13/07structptr.c -o w1307
-          command: ./w1307
-          input: ""
-          expected-output: "전공필수"
+          test-name: week14-06-constparam
+          setup-command: gcc chapter14/06constparam.c -o w1406
+          command: ./w1406
+          input: "6.0 2.0"
+          expected-output: "12.00"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-08-unionptr
-        id: week13-08-unionptr
+      - name: week14-07-complexnum
+        id: week14-07-complexnum
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-08-unionptr
-          setup-command: gcc chapter13/08unionptr.c -o w1308
-          command: ./w1308
+          test-name: week14-07-complexnum
+          setup-command: gcc chapter14/07complexnum.c -o w1407
+          command: ./w1407
           input: ""
-          expected-output: "3.14"
+          expected-output: "5.8"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-09-structary
-        id: week13-09-structary
+      - name: week14-08-ptrfunction
+        id: week14-08-ptrfunction
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-09-structary
-          setup-command: gcc chapter13/09structary.c -o w1309
-          command: ./w1309
-          input: ""
-          expected-output: "배열크기: 5"
+          test-name: week14-08-ptrfunction
+          setup-command: gcc chapter14/08ptrfunction.c -o w1408
+          command: ./w1408
+          input: "3.5 1.5"
+          expected-output: "5.000000"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-lab1-structcity
-        id: week13-lab1-structcity
+      - name: week14-09-aryptrf
+        id: week14-09-aryptrf
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-lab1-structcity
-          setup-command: gcc chapter13/lab1structcity.c -o w13lab1
-          command: ./w13lab1
-          input: ""
-          expected-output: "[서울]"
+          test-name: week14-09-aryptrf
+          setup-command: gcc chapter14/09aryptrf.c -o w1409
+          command: ./w1409
+          input: "6.0 2.0"
+          expected-output: "8.00"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-lab2-structmovie
-        id: week13-lab2-structmovie
+      - name: week14-10-voidptr
+        id: week14-10-voidptr
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-lab2-structmovie
-          setup-command: gcc chapter13/lab2structmovie.c -o w13lab2
-          command: ./w13lab2
+          test-name: week14-10-voidptr
+          setup-command: gcc chapter14/10voidptr.c -o w1410
+          command: ./w1410
           input: ""
-          expected-output: "310000000000"
+          expected-output: "3.98"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week13-lab3-boxoffice
-        id: week13-lab3-boxoffice
+      - name: week14-lab1-minvararg
+        id: week14-lab1-minvararg
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week13-lab3-boxoffice
-          setup-command: gcc chapter13/lab3boxoffice.c -o w13lab3
-          command: ./w13lab3
+          test-name: week14-lab1-minvararg
+          setup-command: gcc chapter14/lab1minvararg.c -o w14lab1
+          command: ./w14lab1
           input: ""
-          expected-output: "김용화"
+          expected-output: "6"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week14-lab2-bookaddress
+        id: week14-lab2-bookaddress
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week14-lab2-bookaddress
+          setup-command: gcc chapter14/lab2bookaddress.c -o w14lab2
+          command: ./w14lab2
+          input: ""
+          expected-output: "437894"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week14-lab3-ptrfunction
+        id: week14-lab3-ptrfunction
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week14-lab3-ptrfunction
+          setup-command: gcc chapter14/lab3ptrfunction.c -o w14lab3
+          command: ./w14lab3
+          input: ""
+          expected-output: "48"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -161,16 +187,18 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK13-01-STRUCTBASIC_RESULTS: "${{steps.week13-01-structbasic.outputs.result}}"
-          WEEK13-02-NESTEDSTRUCT_RESULTS: "${{steps.week13-02-nestedstruct.outputs.result}}"
-          WEEK13-04-UNION_RESULTS: "${{steps.week13-04-union.outputs.result}}"
-          WEEK13-05-TYPEDEF_RESULTS: "${{steps.week13-05-typedef.outputs.result}}"
-          WEEK13-06-TDEFSTRUCT_RESULTS: "${{steps.week13-06-tdefstruct.outputs.result}}"
-          WEEK13-07-STRUCTPTR_RESULTS: "${{steps.week13-07-structptr.outputs.result}}"
-          WEEK13-08-UNIONPTR_RESULTS: "${{steps.week13-08-unionptr.outputs.result}}"
-          WEEK13-09-STRUCTARY_RESULTS: "${{steps.week13-09-structary.outputs.result}}"
-          WEEK13-LAB1-STRUCTCITY_RESULTS: "${{steps.week13-lab1-structcity.outputs.result}}"
-          WEEK13-LAB2-STRUCTMOVIE_RESULTS: "${{steps.week13-lab2-structmovie.outputs.result}}"
-          WEEK13-LAB3-BOXOFFICE_RESULTS: "${{steps.week13-lab3-boxoffice.outputs.result}}"
+          WEEK14-01-CALLBY_RESULTS: "${{steps.week14-01-callby.outputs.result}}"
+          WEEK14-02-ARYPARAM_RESULTS: "${{steps.week14-02-aryparam.outputs.result}}"
+          WEEK14-03-VARARG_RESULTS: "${{steps.week14-03-vararg.outputs.result}}"
+          WEEK14-04-PTRPARAM_RESULTS: "${{steps.week14-04-ptrparam.outputs.result}}"
+          WEEK14-05-PTRRETURN_RESULTS: "${{steps.week14-05-ptrreturn.outputs.result}}"
+          WEEK14-06-CONSTPARAM_RESULTS: "${{steps.week14-06-constparam.outputs.result}}"
+          WEEK14-07-COMPLEXNUM_RESULTS: "${{steps.week14-07-complexnum.outputs.result}}"
+          WEEK14-08-PTRFUNCTION_RESULTS: "${{steps.week14-08-ptrfunction.outputs.result}}"
+          WEEK14-09-ARYPTRF_RESULTS: "${{steps.week14-09-aryptrf.outputs.result}}"
+          WEEK14-10-VOIDPTR_RESULTS: "${{steps.week14-10-voidptr.outputs.result}}"
+          WEEK14-LAB1-MINVARARG_RESULTS: "${{steps.week14-lab1-minvararg.outputs.result}}"
+          WEEK14-LAB2-BOOKADDRESS_RESULTS: "${{steps.week14-lab2-bookaddress.outputs.result}}"
+          WEEK14-LAB3-PTRFUNCTION_RESULTS: "${{steps.week14-lab3-ptrfunction.outputs.result}}"
         with:
-          runners: week13-01-structbasic,week13-02-nestedstruct,week13-04-union,week13-05-typedef,week13-06-tdefstruct,week13-07-structptr,week13-08-unionptr,week13-09-structary,week13-lab1-structcity,week13-lab2-structmovie,week13-lab3-boxoffice
+          runners: week14-01-callby,week14-02-aryparam,week14-03-vararg,week14-04-ptrparam,week14-05-ptrreturn,week14-06-constparam,week14-07-complexnum,week14-08-ptrfunction,week14-09-aryptrf,week14-10-voidptr,week14-lab1-minvararg,week14-lab2-bookaddress,week14-lab3-ptrfunction
