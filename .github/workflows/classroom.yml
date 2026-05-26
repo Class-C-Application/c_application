@@ -1,8 +1,10 @@
 name: GitHub Classroom Workflow - Week14
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'chapter14/**'
+      - '.github/workflows/classroom.yml'
 permissions:
   checks: write
   actions: read
