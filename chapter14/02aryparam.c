@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int sumary(int*, int); //int sumary(int ary[], int SIZE)도 가능
+int sumary(        ); // 가이드: 배열 주소와 배열 크기를 매개변수로 선언
 
 int main(void)
 {
@@ -21,15 +21,15 @@ int main(void)
 	return 0;
 }
 
-int sumary(int* ary, int SIZE) //int sumary(int ary[], int SIZE)도 가능
+int sumary(        ) // 가이드: 포인터 매개변수와 배열 크기 매개변수 선언
 {
 	int sum = 0;
 	for (int i = 0; i < SIZE; i++)
 	{
 		// 가이드: ary가 가리키는 값을 더한 후 다음 원소로 이동
 		sum += ;
-		//sum += ary[i];		//가능
-		//sum += *(ary + i);	//가능
+		// 배열 참조 방식으로도 가능
+		// 포인터 연산 방식으로도 가능
 	}
 
 	return sum;
