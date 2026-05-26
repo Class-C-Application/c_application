@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> 
 
-void add(int*, int, int);
+void add(        ); // 가이드: int* psum, int a, int b
 
 int main(void)
 {
@@ -16,7 +16,7 @@ int main(void)
 	return 0;
 }
 
-void add(int* psum, int a, int b)
+void add(        ) // 가이드: int* psum, int a, int b
 {
 	// 가이드: psum이 가리키는 변수에 a와 b의 합 저장
 	
