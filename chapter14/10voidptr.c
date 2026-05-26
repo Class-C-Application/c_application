@@ -11,21 +11,21 @@ int main(void)
 	double d = 3.98;
 	char str[][20] = { { "C 언어," }, { "재미있네요!" } };
 
-	void* p = ; //m의 주소 만을 저장
+	void* p = ; // 가이드: 정수 변수 m의 주소 저장
 	printf("%p ", p); //주소 값 출력
 	//printf("%d\n", *p); //컴파일 오류 발생
-	printf("%d\n",        ); //int * 로 변환
+	printf("%d\n",        ); // 가이드: p를 int 포인터로 형변환한 후 역참조
 
-	p = ;
+	p = ; // 가이드: 실수 변수 d의 주소 저장
 	printf("%p ", p); //주소 값 출력
-	printf("%.2f\n",        ); //double * 로 변환
+	printf("%.2f\n",        ); // 가이드: p를 double 포인터로 형변환한 후 역참조
 
-	p = ;
-	(        )(); //함수 포인터인 void(*)(void) 로 변환하여 호출 ()
+	p = ; // 가이드: myprint 함수의 주소 저장
+	(        )(); // 가이드: p를 함수 포인터인 void(*)(void)로 형변환하여 호출
 
-	p = ;
+	p = ; // 가이드: 2차원 문자 배열 str의 시작 주소 저장
 	//열이 20인 이차원 배열로 변환하여 1행과 1행의 문자열 출력
-	printf("%s %s\n",        ,        );
+	printf("%s %s\n",        ,        ); // 가이드: p를 열 크기 20인 문자 배열 포인터로 형변환
 	printf("%s %s\n", str, str + 1);
 
 	{
@@ -33,11 +33,11 @@ int main(void)
 		int data = 5;
 		double value = 34.76;
 
-		void* vp;	//void 포인터 변수 vp 선언
+		;	// 가이드: void 포인터 변수 vp 선언
 
-		vp = ;	//ch의 주소 만을 저장
-		vp = ;	//data의 주소 만을 저장
-		vp = ;	//value의 주소 만을 저장
+		vp = ;	// 가이드: 문자 변수 ch의 주소 저장
+		vp = ;	// 가이드: 정수 변수 data의 주소 저장
+		vp = ;	// 가이드: 실수 변수 value의 주소 저장
 	}
 	return 0;
 }
