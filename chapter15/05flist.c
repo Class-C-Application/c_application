@@ -3,24 +3,27 @@
 
 int main(void)
 {
-	FILE* f;	
-	if (fopen_s(&f, "05flist.c", "r") != 0) //읽기 모드로 파일 열기 
-	//if ( (f = fopen("05flist.c", "r")) == NULL ) 
-	{
-		printf("파일이 열리지 않습니다.\n");
-		exit(1);
-	}
+    FILE* f;
 
-	int ch, cnt = 0; //문자를 저장할 ch, 행번호를 저장할 cnt
-	printf("%4d: ", ++cnt); //1행 처음에 번호 1 출력
-	while ((ch = fgetc(f)) != EOF)
-	{
-		putchar(ch); //putc(ch, stdout);
-		if (ch == '\n') //2행부터 행 처음에 행 번호 출력
-			printf("%4d: ", ++cnt);
-	}
-	printf("\n");
-	fclose(f);
+    // 가이드: 현재 소스 파일 05flist.c를 읽기 모드로 여세요.
+    if (fopen_s([    ], "05flist.c", [   ]) != 0)
+    {
+        printf("파일이 열리지 않습니다.\n");
+        exit(1);
+    }
 
-	return 0;
+    int ch, cnt = 0;
+    printf("%4d: ", ++cnt);
+
+    // 가이드: EOF 전까지 문자를 읽고, 개행마다 행 번호를 출력하세요.
+    while ((ch = [       ](f)) != EOF)
+    {
+        putchar(ch);
+        if (ch == [    ])
+            printf("%4d: ", [       ]);
+    }
+    printf("\n");
+    fclose(f);
+
+    return 0;
 }

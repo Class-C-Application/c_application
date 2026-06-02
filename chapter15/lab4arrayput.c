@@ -1,35 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(void)
 {
-	FILE* f;
-	if (fopen_s(&f, "test.bin", "wb+") != 0) //if ((f = fopen("test.bin", "wb+")) == NULL)
-	{
-		printf("파일이 열리지 않습니다.\n");
-		exit(1);
-	}
+    FILE* f;
 
-	int out[] = { 10, 20, 30, 40, 50, 60, 70, 80 };
-	int size = sizeof(out) / sizeof(out[0]);
-	printf("파일에 출력 자료: ");
-	for (int i = 0; i < size; i++)
-	{
-		_putw(out[i], f); //_putw() 이용 배열 out의 내용 모두 출력
-		printf("%d ", out[i]);
-	}
-	printf("\n");
+    // 가이드: test.bin을 이진 읽기/쓰기 모드로 여세요.
+    if (fopen_s([    ], "test.bin", [     ]) != 0)
+    {
+        printf("파일이 열리지 않습니다.\n");
+        exit(1);
+    }
 
-	rewind(f); //파일 f의 파일 지시자를 0으로 위치 
-	printf("파일에서 입력 자료(하나씩 건너 뜀): ");
-	for (int i = 0; i < size / 2; i++)
-	{
-		int in = _getw(f);
-		fseek(f, sizeof(int), SEEK_CUR); //다음 정수는 하나 건너 뛰기
-		printf("%d ", in);
-	}
-	printf("\n");
-	fclose(f);
+    int out[] = { 10, 20, 30, 40, 50, 60, 70, 80 };
+    int size = sizeof(out) / sizeof(out[0]);
 
-	return 0;
+    printf("파일에 출력 자료: ");
+    for (int i = 0; i < size; i++)
+    {
+        // 가이드: out[i]를 워드 단위로 파일에 출력하세요.
+        [     ](out[i], f);
+        printf("%d ", out[i]);
+    }
+    printf("\n");
+
+    // 가이드: 파일 위치를 처음으로 돌린 뒤 하나씩 건너뛰며 읽으세요.
+    [       ](f);
+    printf("파일에서 입력 자료(하나씩 건너 뜀): ");
+    for (int i = 0; i < size / 2; i++)
+    {
+        int in = [     ](f);
+        fseek(f, sizeof(int), [        ]);
+        printf("%d ", in);
+    }
+    printf("\n");
+    fclose(f);
+
+    return 0;
 }
