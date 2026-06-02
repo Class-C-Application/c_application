@@ -1,9 +1,9 @@
-name: GitHub Classroom Workflow - Week14
+name: GitHub Classroom Workflow - Week15
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'chapter14/**'
+      - 'chapter15/**'
       - '.github/workflows/classroom.yml'
 permissions:
   checks: write
@@ -11,163 +11,59 @@ permissions:
   contents: read
 jobs:
   build:
-    name: Autograding Week14
+    name: Autograding Week15
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week14-01-callby
-        id: week14-01-callby
+      - name: week15-01-fopen
+        id: week15-01-fopen
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week14-01-callby
-          setup-command: gcc chapter14/01callby.c -o w1401
-          command: ./w1401
+          test-name: week15-01-fopen
+          setup-command: gcc chapter15/01fopen.c -o w1501
+          command: ./w1501
           input: ""
-          expected-output: "120"
+          expected-output: "basic.txt"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week14-02-aryparam
-        id: week14-02-aryparam
+      - name: week15-08-frename
+        id: week15-08-frename
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week14-02-aryparam
-          setup-command: gcc chapter14/02aryparam.c -o w1402
-          command: ./w1402
+          test-name: week15-08-frename
+          setup-command: gcc chapter15/08frename.c -o w1508
+          command: ./w1508
           input: ""
-          expected-output: "755"
+          expected-output: "new.c"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week14-03-vararg
-        id: week14-03-vararg
+      - name: week15-lab1-basicfio
+        id: week15-lab1-basicfio
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week14-03-vararg
-          setup-command: gcc chapter14/03vararg.c -o w1403
-          command: ./w1403
+          test-name: week15-lab1-basicfio
+          setup-command: gcc chapter15/lab1basicfio.c -o w15lab1
+          command: ./w15lab1
           input: ""
-          expected-output: "3.40"
+          expected-output: "myinfo.txt"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week14-04-ptrparam
-        id: week14-04-ptrparam
+      - name: week15-lab2-uplowerchar
+        id: week15-lab2-uplowerchar
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week14-04-ptrparam
-          setup-command: gcc chapter14/04ptrparam.c -o w1404
-          command: ./w1404
-          input: "3 5"
-          expected-output: "8"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-06-constparam
-        id: week14-06-constparam
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-06-constparam
-          setup-command: gcc chapter14/06constparam.c -o w1406
-          command: ./w1406
-          input: "6.0 2.0"
-          expected-output: "12.00"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-07-complexnum
-        id: week14-07-complexnum
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-07-complexnum
-          setup-command: gcc chapter14/07complexnum.c -o w1407
-          command: ./w1407
+          test-name: week15-lab2-uplowerchar
+          setup-command: cp chapter15/lab2uplowerchar.c . && gcc chapter15/lab2uplowerchar.c -o w15lab2
+          command: ./w15lab2
           input: ""
-          expected-output: "5.8"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-08-ptrfunction
-        id: week14-08-ptrfunction
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-08-ptrfunction
-          setup-command: gcc chapter14/08ptrfunction.c -o w1408
-          command: ./w1408
-          input: "3.5 1.5"
-          expected-output: "5.000000"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-09-aryptrf
-        id: week14-09-aryptrf
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-09-aryptrf
-          setup-command: gcc chapter14/09aryptrf.c -o w1409
-          command: ./w1409
-          input: "6.0 2.0"
-          expected-output: "8.00"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-10-voidptr
-        id: week14-10-voidptr
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-10-voidptr
-          setup-command: gcc chapter14/10voidptr.c -o w1410
-          command: ./w1410
-          input: ""
-          expected-output: "3.98"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-lab1-minvararg
-        id: week14-lab1-minvararg
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-lab1-minvararg
-          setup-command: gcc chapter14/lab1minvararg.c -o w14lab1
-          command: ./w14lab1
-          input: ""
-          expected-output: "6"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-lab2-bookaddress
-        id: week14-lab2-bookaddress
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-lab2-bookaddress
-          setup-command: gcc chapter14/lab2bookaddress.c -o w14lab2
-          command: ./w14lab2
-          input: ""
-          expected-output: "437894"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week14-lab3-ptrfunction
-        id: week14-lab3-ptrfunction
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week14-lab3-ptrfunction
-          setup-command: gcc chapter14/lab3ptrfunction.c -o w14lab3
-          command: ./w14lab3
-          input: ""
-          expected-output: "48"
+          expected-output: "convertchar.c"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -176,17 +72,9 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK14-01-CALLBY_RESULTS: "${{steps.week14-01-callby.outputs.result}}"
-          WEEK14-02-ARYPARAM_RESULTS: "${{steps.week14-02-aryparam.outputs.result}}"
-          WEEK14-03-VARARG_RESULTS: "${{steps.week14-03-vararg.outputs.result}}"
-          WEEK14-04-PTRPARAM_RESULTS: "${{steps.week14-04-ptrparam.outputs.result}}"
-          WEEK14-06-CONSTPARAM_RESULTS: "${{steps.week14-06-constparam.outputs.result}}"
-          WEEK14-07-COMPLEXNUM_RESULTS: "${{steps.week14-07-complexnum.outputs.result}}"
-          WEEK14-08-PTRFUNCTION_RESULTS: "${{steps.week14-08-ptrfunction.outputs.result}}"
-          WEEK14-09-ARYPTRF_RESULTS: "${{steps.week14-09-aryptrf.outputs.result}}"
-          WEEK14-10-VOIDPTR_RESULTS: "${{steps.week14-10-voidptr.outputs.result}}"
-          WEEK14-LAB1-MINVARARG_RESULTS: "${{steps.week14-lab1-minvararg.outputs.result}}"
-          WEEK14-LAB2-BOOKADDRESS_RESULTS: "${{steps.week14-lab2-bookaddress.outputs.result}}"
-          WEEK14-LAB3-PTRFUNCTION_RESULTS: "${{steps.week14-lab3-ptrfunction.outputs.result}}"
+          WEEK15-01-FOPEN_RESULTS: "${{steps.week15-01-fopen.outputs.result}}"
+          WEEK15-08-FRENAME_RESULTS: "${{steps.week15-08-frename.outputs.result}}"
+          WEEK15-LAB1-BASICFIO_RESULTS: "${{steps.week15-lab1-basicfio.outputs.result}}"
+          WEEK15-LAB2-UPLOWERCHAR_RESULTS: "${{steps.week15-lab2-uplowerchar.outputs.result}}"
         with:
-          runners: week14-01-callby,week14-02-aryparam,week14-03-vararg,week14-04-ptrparam,week14-06-constparam,week14-07-complexnum,week14-08-ptrfunction,week14-09-aryptrf,week14-10-voidptr,week14-lab1-minvararg,week14-lab2-bookaddress,week14-lab3-ptrfunction
+          runners: week15-01-fopen,week15-08-frename,week15-lab1-basicfio,week15-lab2-uplowerchar
