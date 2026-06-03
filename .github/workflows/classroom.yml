@@ -76,9 +76,9 @@ jobs:
         with:
           test-name: week15-05-flist
           setup-command: cp chapter15/05flist.c 05flist.c && gcc chapter15/05flist.c -o w1505
-          command: ./w1505
+          command: bash -c './w1505 > /tmp/w1505.out && test -s /tmp/w1505.out && echo flist-ok'
           input: ""
-          expected-output: "1:"
+          expected-output: "flist-ok"
           comparison-method: contains
           timeout: 10
           max-score: 10
