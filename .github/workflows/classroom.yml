@@ -1,9 +1,9 @@
-name: GitHub Classroom Workflow - Week15
+name: GitHub Classroom Workflow - Week16
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'chapter15/**'
+      - 'chapter16/**'
       - '.github/workflows/classroom.yml'
 permissions:
   checks: write
@@ -11,115 +11,150 @@ permissions:
   contents: read
 jobs:
   build:
-    name: Autograding Week15
+    name: Autograding Week16
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: week15-01-fopen
-        id: week15-01-fopen
+      - name: week16-01-malloc
+        id: week16-01-malloc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week15-01-fopen
-          setup-command: rm -f basic.txt && gcc chapter15/01fopen.c -o w1501
-          command: bash -c './w1501 && test -f basic.txt && cat basic.txt'
+          test-name: week16-01-malloc
+          setup-command: gcc chapter16/01malloc.c -o w1601
+          command: ./w1601
           input: ""
-          expected-output: "손혜진"
+          expected-output: "저장 값"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week15-02-fprintf
-        id: week15-02-fprintf
+      - name: week16-02-arymalloc
+        id: week16-02-arymalloc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week15-02-fprintf
-          setup-command: rm -f grade.txt && gcc chapter15/02fprintf.c -o w1502
-          command: bash -c './w1502 && test -f grade.txt && cat grade.txt'
-          input: "Kim 80 90"
-          expected-output: "1 Kim 80 90"
+          test-name: week16-02-arymalloc
+          setup-command: gcc chapter16/02arymalloc.c -o w1602
+          command: ./w1602
+          input: "3 90 80 70"
+          expected-output: "합: 240"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week15-03-mlinefio
-        id: week15-03-mlinefio
+      - name: week16-03-calloc
+        id: week16-03-calloc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week15-03-mlinefio
-          setup-command: rm -f grade.txt && gcc chapter15/03mlinefio.c -o w1503
-          command: bash -c './w1503 && test -f grade.txt && cat grade.txt'
-          input: |
-            Kim 80 90
-            Lee 70 85
-          expected-output: "2 Lee 70 85"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week15-04-fgetc
-        id: week15-04-fgetc
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-04-fgetc
-          setup-command: rm -f char.txt && gcc chapter15/04fgetc.c -o w1504
-          command: bash -c './w1504 && test -f char.txt && cat char.txt'
-          input: "abcdefx"
-          expected-output: "abcdef"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week15-05-flist
-        id: week15-05-flist
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-05-flist
-          setup-command: cp chapter15/05flist.c 05flist.c && gcc chapter15/05flist.c -o w1505
-          command: bash -c './w1505 > /tmp/w1505.out && test -s /tmp/w1505.out && echo flist-ok'
+          test-name: week16-03-calloc
+          setup-command: gcc chapter16/03calloc.c -o w1603
+          command: ./w1603
           input: ""
-          expected-output: "flist-ok"
+          expected-output: "ary[1] = 0"
           comparison-method: contains
           timeout: 10
           max-score: 10
 
-      - name: week15-06-structfio
-        id: week15-06-structfio
+      - name: week16-04-realloc
+        id: week16-04-realloc
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: week15-06-structfio
-          setup-command: rm -f score.bin && gcc chapter15/06structfio.c -o w1506
-          command: bash -c './w1506'
-          input: |
-            Kim 80 90 10
-            Lee 70 85 9
-          expected-output: "Kim"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week15-07-appendsfile
-        id: week15-07-appendsfile
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-07-appendsfile
-          setup-command: rm -f score.bin && gcc chapter15/07appendsfile.c -o w1507
-          command: bash -c './w1507 && test -f score.bin'
-          input: "Park 95 88 10"
-          expected-output: "Park"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week15-08-frename
-        id: week15-08-frename
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-08-frename
-          setup-command: rm -f old.c new.c && touch old.c && gcc chapter15/08frename.c -o w1508
-          command: bash -c './w1508 && test -f new.c && echo rename-ok'
+          test-name: week16-04-realloc
+          setup-command: gcc chapter16/04realloc.c -o w1604
+          command: ./w1604
           input: ""
-          expected-output: "rename-ok"
+          expected-output: "ary[0] = 10"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-05-selfrefstruct
+        id: week16-05-selfrefstruct
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-05-selfrefstruct
+          setup-command: gcc chapter16/05selfrefstruct.c -o w1605
+          command: ./w1605
+          input: ""
+          expected-output: "200"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-07-sysmacro
+        id: week16-07-sysmacro
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-07-sysmacro
+          setup-command: gcc chapter16/07sysmacro.c -o w1607
+          command: ./w1607
+          input: ""
+          expected-output: "07sysmacro.c"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-08-preif
+        id: week16-08-preif
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-08-preif
+          setup-command: gcc chapter16/08preif.c -o w1608
+          command: ./w1608
+          input: ""
+          expected-output: "저장 값: 17"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-09-ifdef
+        id: week16-09-ifdef
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-09-ifdef
+          setup-command: gcc chapter16/09ifdef.c -o w1609
+          command: ./w1609
+          input: ""
+          expected-output: "1부터 20까지의 곱"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-lab1-semployee
+        id: week16-lab1-semployee
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-lab1-semployee
+          setup-command: gcc chapter16/lab1semployee.c -o w16lab1
+          command: ./w16lab1
+          input: ""
+          expected-output: "고은아"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-lab2-nodelist
+        id: week16-lab2-nodelist
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-lab2-nodelist
+          setup-command: gcc chapter16/lab2nodelist.c -o w16lab2
+          command: ./w16lab2
+          input: ""
+          expected-output: "3번째 노드는 500"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week16-lab3-swaptype
+        id: week16-lab3-swaptype
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week16-lab3-swaptype
+          setup-command: gcc chapter16/lab3swaptype.c -o w16lab3
+          command: ./w16lab3
+          input: ""
+          expected-output: "7.18 3.36"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -128,13 +163,16 @@ jobs:
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
-          WEEK15-01-FOPEN_RESULTS: "${{steps.week15-01-fopen.outputs.result}}"
-          WEEK15-02-FPRINTF_RESULTS: "${{steps.week15-02-fprintf.outputs.result}}"
-          WEEK15-03-MLINEFIO_RESULTS: "${{steps.week15-03-mlinefio.outputs.result}}"
-          WEEK15-04-FGETC_RESULTS: "${{steps.week15-04-fgetc.outputs.result}}"
-          WEEK15-05-FLIST_RESULTS: "${{steps.week15-05-flist.outputs.result}}"
-          WEEK15-06-STRUCTFIO_RESULTS: "${{steps.week15-06-structfio.outputs.result}}"
-          WEEK15-07-APPENDSFILE_RESULTS: "${{steps.week15-07-appendsfile.outputs.result}}"
-          WEEK15-08-FRENAME_RESULTS: "${{steps.week15-08-frename.outputs.result}}"
+          WEEK16-01-MALLOC_RESULTS: "${{steps.week16-01-malloc.outputs.result}}"
+          WEEK16-02-ARYMALLOC_RESULTS: "${{steps.week16-02-arymalloc.outputs.result}}"
+          WEEK16-03-CALLOC_RESULTS: "${{steps.week16-03-calloc.outputs.result}}"
+          WEEK16-04-REALLOC_RESULTS: "${{steps.week16-04-realloc.outputs.result}}"
+          WEEK16-05-SELFREFSTRUCT_RESULTS: "${{steps.week16-05-selfrefstruct.outputs.result}}"
+          WEEK16-07-SYSMACRO_RESULTS: "${{steps.week16-07-sysmacro.outputs.result}}"
+          WEEK16-08-PREIF_RESULTS: "${{steps.week16-08-preif.outputs.result}}"
+          WEEK16-09-IFDEF_RESULTS: "${{steps.week16-09-ifdef.outputs.result}}"
+          WEEK16-LAB1-SEMPLOYEE_RESULTS: "${{steps.week16-lab1-semployee.outputs.result}}"
+          WEEK16-LAB2-NODELIST_RESULTS: "${{steps.week16-lab2-nodelist.outputs.result}}"
+          WEEK16-LAB3-SWAPTYPE_RESULTS: "${{steps.week16-lab3-swaptype.outputs.result}}"
         with:
-          runners: week15-01-fopen,week15-02-fprintf,week15-03-mlinefio,week15-04-fgetc,week15-05-flist,week15-06-structfio,week15-07-appendsfile,week15-08-frename
+          runners: week16-01-malloc,week16-02-arymalloc,week16-03-calloc,week16-04-realloc,week16-05-selfrefstruct,week16-07-sysmacro,week16-08-preif,week16-09-ifdef,week16-lab1-semployee,week16-lab2-nodelist,week16-lab3-swaptype
