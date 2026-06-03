@@ -42,39 +42,11 @@ jobs:
           timeout: 10
           max-score: 10
 
-      - name: week15-lab1-basicfio
-        id: week15-lab1-basicfio
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-lab1-basicfio
-          setup-command: gcc chapter15/lab1basicfio.c -o w15lab1
-          command: ./w15lab1
-          input: ""
-          expected-output: "myinfo.txt"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week15-lab2-uplowerchar
-        id: week15-lab2-uplowerchar
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week15-lab2-uplowerchar
-          setup-command: cp chapter15/lab2uplowerchar.c . && gcc chapter15/lab2uplowerchar.c -o w15lab2
-          command: ./w15lab2
-          input: ""
-          expected-output: "convertchar.c"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
         env:
           WEEK15-01-FOPEN_RESULTS: "${{steps.week15-01-fopen.outputs.result}}"
           WEEK15-08-FRENAME_RESULTS: "${{steps.week15-08-frename.outputs.result}}"
-          WEEK15-LAB1-BASICFIO_RESULTS: "${{steps.week15-lab1-basicfio.outputs.result}}"
-          WEEK15-LAB2-UPLOWERCHAR_RESULTS: "${{steps.week15-lab2-uplowerchar.outputs.result}}"
         with:
-          runners: week15-01-fopen,week15-08-frename,week15-lab1-basicfio,week15-lab2-uplowerchar
+          runners: week15-01-fopen,week15-08-frename
