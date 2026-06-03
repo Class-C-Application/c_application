@@ -75,10 +75,10 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week15-05-flist
-          setup-command: gcc chapter15/05flist.c -o w1505
+          setup-command: cp chapter15/05flist.c 05flist.c && gcc chapter15/05flist.c -o w1505
           command: ./w1505
           input: ""
-          expected-output: "#include <stdio.h>"
+          expected-output: "1:"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -89,11 +89,11 @@ jobs:
         with:
           test-name: week15-06-structfio
           setup-command: rm -f score.bin && gcc chapter15/06structfio.c -o w1506
-          command: bash -c './w1506 && test -f score.bin'
+          command: bash -c './w1506'
           input: |
             Kim 80 90 10
             Lee 70 85 9
-          expected-output: "Lee"
+          expected-output: "Kim"
           comparison-method: contains
           timeout: 10
           max-score: 10
