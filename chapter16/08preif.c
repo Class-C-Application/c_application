@@ -1,27 +1,25 @@
 #include <stdio.h>
 
-//상수 정의
 #define WINDOWS 1
 #define MAC 2
 #define UNIX 3
-//#define SYSTEM WINDOWS
 #define SYSTEM WINDOWS
 
-//전처리 #if #elif #else #endif
-#if (SYSTEM == WINDOWS) 
+// 가이드: SYSTEM 값에 따라 my_int 자료형이 달라지도록 조건부 컴파일을 완성하세요.
+#if [                    ]
 typedef int my_int;
-#elif SYSTEM == MAC
+#elif [                  ]
 typedef long my_int;
-#elif SYSTEM == UNIX
+#elif [                  ]
 typedef long long my_int;
-#else 
+#else
 typedef short my_int;
 #endif
 
 int main(void)
 {
-	my_int n = 17;
-	printf("변수크기: %zu, 저장 값: %d\n", sizeof(n), n);
+    my_int n = 17;
+    printf("변수크기: %zu, 저장 값: %d\n", sizeof(n), n);
 
-	return 0;
+    return 0;
 }

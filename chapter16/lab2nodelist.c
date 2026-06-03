@@ -2,42 +2,44 @@
 #include <stdlib.h>
 
 struct node {
-	int x;
-	struct node* next;
+    int x;
+    [                   ] next;
 };
 
 int main(void)
 {
-	//노드 두 개를 생성하여 자료와 링크를 대입
-	struct node* one = malloc(sizeof(struct node));
-	one->x = 10;
-	one->next = NULL;
-	struct node* two = malloc(sizeof(struct node));
-	two->x = 20;
-	two->next = one;
+    // 가이드: 노드 two -> one 순서가 되도록 노드 2개를 동적 할당하고 연결하세요.
+    struct node* one = [      ](sizeof(struct node));
+    one->x = 10;
+    one->next = NULL;
 
-	struct node* head = two;
-	struct node* cur = head;
-	if (cur)
-	{
-		while (cur->next != NULL)
-			cur = cur->next;
-	}
+    struct node* two = [      ](sizeof(struct node));
+    two->x = 20;
+    two->next = [   ];
 
-	cur->next = malloc(sizeof(struct node)); //노드를 생성하여 주소를 저장
-	cur = cur->next;
+    struct node* head = [   ];
+    struct node* cur = head;
 
-	cur->next = NULL;
-	cur->x = 500;
+    // 가이드: 마지막 노드로 이동하세요.
+    if (cur)
+    {
+        while ([                  ] != NULL)
+            cur = [          ];
+    }
 
-	int cnt = 0;
-	cur = head;
-	while (cur != NULL)
-	{
-		//리스트의 순서로 노드를 방문하여 방문 횟수와 문자열 자료를 출력
-		printf("%3d번째 노드는 %d\n", ++cnt, cur->x);
-		cur = cur->next;
-	}
+    // 가이드: 마지막에 새 노드를 하나 추가하고 값 500을 저장하세요.
+    cur->next = [      ](sizeof(struct node));
+    cur = [          ];
+    cur->next = NULL;
+    cur->x = [   ];
 
-	return 0;
+    int cnt = 0;
+    cur = head;
+    while (cur != NULL)
+    {
+        printf("%3d번째 노드는 %d\n", ++cnt, cur->x);
+        cur = [          ];
+    }
+
+    return 0;
 }

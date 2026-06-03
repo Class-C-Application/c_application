@@ -5,23 +5,25 @@ void myprintf(int* ary, int n);
 
 int main(void)
 {
-	int* ary = NULL;
-	if ((ary = (int*)calloc(3, sizeof(int))) == NULL) //동적메모리 할당
-	{
-		printf("메모리 할당이 문제가 있습니다.\n");
-		exit(EXIT_FAILURE);
-	}
-	myprintf(ary, 3); //모두 기본 값인 0 출력
+    int* ary = NULL;
 
-	free(ary); //동적메모리 해제
-	myprintf(ary, 3); //모두 쓰레기 값 출력
+    // 가이드: int형 원소 3개를 0으로 초기화하여 동적 할당하세요.
+    if ((ary = (int*)[      ]( [ ], [           ] )) == NULL)
+    {
+        printf("메모리 할당이 문제가 있습니다.\n");
+        exit(EXIT_FAILURE);
+    }
 
-	return 0;
+    myprintf(ary, 3);
+
+    // 가이드: 동적 메모리를 해제하세요.
+    [    ](ary);
+
+    return 0;
 }
 
 void myprintf(int* ary, int n)
 {
-	for (int i = 0; i < n; i++)
-		printf("ary[%d] = %d\n", i, *(ary + i));
+    for (int i = 0; i < n; i++)
+        printf("ary[%d] = %d\n", i, [          ]);
 }
-
