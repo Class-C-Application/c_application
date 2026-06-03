@@ -21,10 +21,92 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week15-01-fopen
-          setup-command: gcc chapter15/01fopen.c -o w1501
-          command: ./w1501
+          setup-command: rm -f basic.txt && gcc chapter15/01fopen.c -o w1501
+          command: bash -c './w1501 && test -f basic.txt && cat basic.txt'
           input: ""
-          expected-output: "basic.txt"
+          expected-output: "손혜진"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-02-fprintf
+        id: week15-02-fprintf
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-02-fprintf
+          setup-command: rm -f grade.txt && gcc chapter15/02fprintf.c -o w1502
+          command: bash -c './w1502 && test -f grade.txt && cat grade.txt'
+          input: "Kim 80 90"
+          expected-output: "1 Kim 80 90"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-03-mlinefio
+        id: week15-03-mlinefio
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-03-mlinefio
+          setup-command: rm -f grade.txt && gcc chapter15/03mlinefio.c -o w1503
+          command: bash -c './w1503 && test -f grade.txt && cat grade.txt'
+          input: |
+            Kim 80 90
+            Lee 70 85
+          expected-output: "2 Lee 70 85"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-04-fgetc
+        id: week15-04-fgetc
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-04-fgetc
+          setup-command: rm -f char.txt && gcc chapter15/04fgetc.c -o w1504
+          command: bash -c './w1504 && test -f char.txt && cat char.txt'
+          input: "abcdefx"
+          expected-output: "abcdef"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-05-flist
+        id: week15-05-flist
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-05-flist
+          setup-command: gcc chapter15/05flist.c -o w1505
+          command: ./w1505
+          input: ""
+          expected-output: "#include <stdio.h>"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-06-structfio
+        id: week15-06-structfio
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-06-structfio
+          setup-command: rm -f score.bin && gcc chapter15/06structfio.c -o w1506
+          command: bash -c './w1506 && test -f score.bin'
+          input: |
+            Kim 80 90 10
+            Lee 70 85 9
+          expected-output: "Lee"
+          comparison-method: contains
+          timeout: 10
+          max-score: 10
+
+      - name: week15-07-appendsfile
+        id: week15-07-appendsfile
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: week15-07-appendsfile
+          setup-command: rm -f score.bin && gcc chapter15/07appendsfile.c -o w1507
+          command: bash -c './w1507 && test -f score.bin'
+          input: "Park 95 88 10"
+          expected-output: "Park"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -34,10 +116,10 @@ jobs:
         uses: classroom-resources/autograding-io-grader@v1
         with:
           test-name: week15-08-frename
-          setup-command: gcc chapter15/08frename.c -o w1508
-          command: ./w1508
+          setup-command: rm -f old.c new.c && touch old.c && gcc chapter15/08frename.c -o w1508
+          command: bash -c './w1508 && test -f new.c && echo rename-ok'
           input: ""
-          expected-output: "new.c"
+          expected-output: "rename-ok"
           comparison-method: contains
           timeout: 10
           max-score: 10
@@ -47,6 +129,12 @@ jobs:
         continue-on-error: true
         env:
           WEEK15-01-FOPEN_RESULTS: "${{steps.week15-01-fopen.outputs.result}}"
+          WEEK15-02-FPRINTF_RESULTS: "${{steps.week15-02-fprintf.outputs.result}}"
+          WEEK15-03-MLINEFIO_RESULTS: "${{steps.week15-03-mlinefio.outputs.result}}"
+          WEEK15-04-FGETC_RESULTS: "${{steps.week15-04-fgetc.outputs.result}}"
+          WEEK15-05-FLIST_RESULTS: "${{steps.week15-05-flist.outputs.result}}"
+          WEEK15-06-STRUCTFIO_RESULTS: "${{steps.week15-06-structfio.outputs.result}}"
+          WEEK15-07-APPENDSFILE_RESULTS: "${{steps.week15-07-appendsfile.outputs.result}}"
           WEEK15-08-FRENAME_RESULTS: "${{steps.week15-08-frename.outputs.result}}"
         with:
-          runners: week15-01-fopen,week15-08-frename
+          runners: week15-01-fopen,week15-02-fprintf,week15-03-mlinefio,week15-04-fgetc,week15-05-flist,week15-06-structfio,week15-07-appendsfile,week15-08-frename

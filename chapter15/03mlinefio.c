@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,23 +8,23 @@ int main(void)
     int cnt = 0;
     FILE* f;
 
-    // 가이드: 여러 줄을 저장할 파일을 쓰기 모드로 여세요.
-    if (fopen_s([    ], fname, [   ]) != 0)
+    // 가이드: 여러 줄의 성적 정보를 저장할 파일을 쓰기 모드로 여세요.
+    f = fopen(fname, [   ]);
+    if (f == NULL)
     {
         printf("파일이 열리지 않습니다.\n");
         exit(1);
     }
 
     printf("이름과 성적(중간, 기말)을 입력하세요.\n");
-    fgets(names, 80, stdin);
 
-    // 가이드: 표준입력이 EOF가 될 때까지 반복하세요.
-    while (![        ](stdin))
+    // 가이드: 표준입력에서 한 줄씩 읽어 파일에 번호와 함께 저장하세요.
+    while ([       ](names, sizeof(names), stdin) != NULL)
     {
         fprintf(f, "%d ", [       ]);
-        [       ](names, f); // 가이드: 한 줄 문자열을 파일에 출력하세요.
-        fgets(names, 80, stdin);
+        [       ](names, f);
     }
+
     fclose(f);
 
     return 0;
