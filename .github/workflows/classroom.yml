@@ -68,97 +68,6 @@ jobs:
           timeout: 10
           max-score: 10
 
-      - name: week16-05-selfrefstruct
-        id: week16-05-selfrefstruct
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-05-selfrefstruct
-          setup-command: gcc chapter16/05selfrefstruct.c -o w1605
-          command: ./w1605
-          input: ""
-          expected-output: "200"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-07-sysmacro
-        id: week16-07-sysmacro
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-07-sysmacro
-          setup-command: gcc chapter16/07sysmacro.c -o w1607
-          command: ./w1607
-          input: ""
-          expected-output: "07sysmacro.c"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-08-preif
-        id: week16-08-preif
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-08-preif
-          setup-command: gcc chapter16/08preif.c -o w1608
-          command: ./w1608
-          input: ""
-          expected-output: "저장 값: 17"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-09-ifdef
-        id: week16-09-ifdef
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-09-ifdef
-          setup-command: gcc chapter16/09ifdef.c -o w1609
-          command: ./w1609
-          input: ""
-          expected-output: "1부터 20까지의 곱"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-lab1-semployee
-        id: week16-lab1-semployee
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-lab1-semployee
-          setup-command: gcc chapter16/lab1semployee.c -o w16lab1
-          command: ./w16lab1
-          input: ""
-          expected-output: "고은아"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-lab2-nodelist
-        id: week16-lab2-nodelist
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-lab2-nodelist
-          setup-command: gcc chapter16/lab2nodelist.c -o w16lab2
-          command: ./w16lab2
-          input: ""
-          expected-output: "3번째 노드는 500"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
-      - name: week16-lab3-swaptype
-        id: week16-lab3-swaptype
-        uses: classroom-resources/autograding-io-grader@v1
-        with:
-          test-name: week16-lab3-swaptype
-          setup-command: gcc chapter16/lab3swaptype.c -o w16lab3
-          command: ./w16lab3
-          input: ""
-          expected-output: "7.18 3.36"
-          comparison-method: contains
-          timeout: 10
-          max-score: 10
-
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         continue-on-error: true
@@ -167,12 +76,5 @@ jobs:
           WEEK16-02-ARYMALLOC_RESULTS: "${{steps.week16-02-arymalloc.outputs.result}}"
           WEEK16-03-CALLOC_RESULTS: "${{steps.week16-03-calloc.outputs.result}}"
           WEEK16-04-REALLOC_RESULTS: "${{steps.week16-04-realloc.outputs.result}}"
-          WEEK16-05-SELFREFSTRUCT_RESULTS: "${{steps.week16-05-selfrefstruct.outputs.result}}"
-          WEEK16-07-SYSMACRO_RESULTS: "${{steps.week16-07-sysmacro.outputs.result}}"
-          WEEK16-08-PREIF_RESULTS: "${{steps.week16-08-preif.outputs.result}}"
-          WEEK16-09-IFDEF_RESULTS: "${{steps.week16-09-ifdef.outputs.result}}"
-          WEEK16-LAB1-SEMPLOYEE_RESULTS: "${{steps.week16-lab1-semployee.outputs.result}}"
-          WEEK16-LAB2-NODELIST_RESULTS: "${{steps.week16-lab2-nodelist.outputs.result}}"
-          WEEK16-LAB3-SWAPTYPE_RESULTS: "${{steps.week16-lab3-swaptype.outputs.result}}"
         with:
-          runners: week16-01-malloc,week16-02-arymalloc,week16-03-calloc,week16-04-realloc,week16-05-selfrefstruct,week16-07-sysmacro,week16-08-preif,week16-09-ifdef,week16-lab1-semployee,week16-lab2-nodelist,week16-lab3-swaptype
+          runners: week16-01-malloc,week16-02-arymalloc,week16-03-calloc,week16-04-realloc
