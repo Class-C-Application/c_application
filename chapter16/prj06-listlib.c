@@ -49,7 +49,8 @@ int printList(LINK head)
     // 가이드: head부터 NULL까지 순회하며 노드의 문자열을 출력하세요.
     while (nextNode != NULL)
     {
-        printf("%3d번째 노드는 %s\n", ++cnt, nextNode->name);
+        // nextNode가 가리키는 구조체의 name 멤버 출력
+        printf("%3d번째 노드는 %s\n", ++cnt, [              ]);
         nextNode = [              ];
     }
 
